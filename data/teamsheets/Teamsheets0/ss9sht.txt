@@ -1,0 +1,23 @@
+ss9
+N
+
+GK X_Oshtoa
+DFC G_Odsa
+DFC T_Zooksonde
+DFC O_Irso
+DFC I_Jhajhors
+MFC W_Ackib
+MFC V_Cholaemn
+MFC Z_Igru
+MFC G_Jhowch
+FWC U_Tyoeksend
+FWC Z_Ubtoviks
+
+GK T_Krund
+DFC A_Ryackowbsu
+MFC L_Pridr
+DFC I_Evrowclomn
+FWC K_Amnuabr
+
+PK: U_Tyoeksend
+

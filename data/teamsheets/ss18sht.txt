@@ -1,0 +1,23 @@
+ss18
+N
+
+GK P_Udsegra
+DFC C_Jirsoi
+DFC I_Sufish
+DFC T_Rarsockow
+DFC U_Osewra
+MFC F_Ickaj
+MFC A_Oproivr
+MFC O_Buh
+MFC W_Profu
+FWC B_Cherstesht
+FWC I_Unhok
+
+GK B_Risy
+DFC Q_Amevr
+MFC L_Absevr
+DFC Q_Claey
+FWC E_Rut
+
+PK: B_Cherstesht
+

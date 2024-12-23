@@ -1,0 +1,23 @@
+ss1
+N
+
+GK G_Btuase
+DFC P_Evraebr
+DFC K_Inyiclibt
+DFC M_Bresyeds
+DFC Y_Brevrortoa
+MFC E_Cumurt
+MFC E_Endeshtor
+MFC T_Jhoblick
+MFC W_Udnu
+FWC G_Foodsa
+FWC P_Trarsip
+
+GK V_Prukra
+DFC U_Rakr
+MFC M_Uhoockebs
+DFC P_Ebtu
+FWC E_Kip
+
+PK: G_Foodsa
+

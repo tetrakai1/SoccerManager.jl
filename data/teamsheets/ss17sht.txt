@@ -1,0 +1,23 @@
+ss17
+N
+
+GK I_Fudniry
+DFC U_Absart
+DFC E_Ostedn
+DFC R_Storst
+DFC B_Orstavre
+MFC Y_Cejenh
+MFC Z_Trewredn
+MFC I_Ruand
+MFC B_Ejhi
+FWC V_Urstewnil
+FWC A_Ufijhu
+
+GK C_Ufushtush
+DFC B_Fabt
+MFC N_Amnivr
+DFC J_Norsobte
+FWC L_Asyoiye
+
+PK: V_Urstewnil
+

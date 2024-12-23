@@ -1,0 +1,23 @@
+uva
+N
+
+GK D_Jhodsofa
+DFC F_Avri
+DFC N_Stetri
+DFC K_Ajhig
+DFC D_Zadredno
+MFC M_Btidso
+MFC Y_Otrewrs
+MFC I_Ortaska
+MFC Z_Irsteg
+FWC E_Claevrod
+FWC W_Endumow
+
+GK V_Kaebtoekse
+DFC Q_Okrety
+MFC D_Raende
+DFC Y_Broibri
+FWC Z_Uryewprew
+
+PK: E_Claevrod
+

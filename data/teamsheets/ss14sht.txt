@@ -1,0 +1,23 @@
+ss14
+N
+
+GK V_Starsabl
+DFC C_Zande
+DFC E_Orsu
+DFC D_Hachibt
+DFC B_Arsuadnosh
+MFC T_Kowvrirsa
+MFC K_Bomn
+MFC W_Achaebs
+MFC Z_Jelae
+FWC X_Jupupr
+FWC G_Ibtoarto
+
+GK S_Draeks
+DFC I_Ozund
+MFC T_Abtewgroeb
+DFC H_Ubu
+FWC C_Krityoze
+
+PK: X_Jupupr
+

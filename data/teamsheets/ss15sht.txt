@@ -1,0 +1,23 @@
+ss15
+N
+
+GK X_Utoroa
+DFC D_Prukuck
+DFC M_Tunh
+DFC Q_Isust
+DFC Q_Chazaesht
+MFC K_Abso
+MFC L_Joende
+MFC W_Aposht
+MFC U_Kroirsesyo
+FWC A_Yindowvroa
+FWC Y_Iksabti
+
+GK L_Kruvruanh
+DFC B_Ucloakru
+MFC D_Rewbtewtr
+DFC M_Idnoibsedr
+FWC G_Ryowsht
+
+PK: A_Yindowvroa
+

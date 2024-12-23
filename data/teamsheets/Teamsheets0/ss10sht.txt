@@ -1,0 +1,23 @@
+ss10
+N
+
+GK Q_Ekroisy
+DFC P_Ablewdro
+DFC M_Ishtasht
+DFC E_Niny
+DFC E_Iskojhu
+MFC G_Besy
+MFC H_Krooshtaet
+MFC G_Jhoatroch
+MFC Y_Toivrobt
+FWC Z_Asoindebs
+FWC P_Btuavrurae
+
+GK H_Esyu
+DFC S_Btarsuckoo
+MFC I_Prayoosk
+DFC X_Obtoaks
+FWC G_Clockoavri
+
+PK: Z_Asoindebs
+

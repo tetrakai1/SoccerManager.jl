@@ -1,0 +1,23 @@
+ss8
+N
+
+GK V_Ashtu
+DFC G_Meclo
+DFC C_Nublivro
+DFC Z_Uvow
+DFC N_Jhashednae
+MFC X_Etowbrowtr
+MFC K_Ushavr
+MFC M_Ubsaerst
+MFC U_Voatyekr
+FWC O_Candoevro
+FWC G_Choesh
+
+GK Q_Oclukridn
+DFC C_Iclevradn
+MFC M_Unyiryua
+DFC I_Hiks
+FWC H_Grodnovr
+
+PK: O_Candoevro
+

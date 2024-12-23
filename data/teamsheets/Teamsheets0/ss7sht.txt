@@ -1,0 +1,23 @@
+ss7
+N
+
+GK Q_Tyiksaks
+DFC F_Edsosh
+DFC H_Andushabl
+DFC D_Anyitr
+DFC O_Ockit
+MFC V_Shomnando
+MFC B_Uskof
+MFC I_Higrabs
+MFC D_Urtobro
+FWC Y_Tikrot
+FWC G_Endibirt
+
+GK A_Atundivr
+DFC A_Nivoovru
+MFC S_Orirst
+DFC C_Oblubt
+FWC Z_Powparsoo
+
+PK: Y_Tikrot
+

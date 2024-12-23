@@ -1,0 +1,23 @@
+ss3
+N
+
+GK R_Edruasoej
+DFC G_Btirtuche
+DFC V_Powhety
+DFC J_Ubtoosowst
+DFC S_Kirst
+MFC E_Ryoiskoi
+MFC P_Orstitr
+MFC U_Ocke
+MFC V_Vaedn
+FWC V_Ovusy
+FWC X_Menhoecla
+
+GK W_Tibe
+DFC W_Fusyibs
+MFC L_Udnual
+DFC B_Absiksoev
+FWC I_Evrarsa
+
+PK: V_Ovusy
+

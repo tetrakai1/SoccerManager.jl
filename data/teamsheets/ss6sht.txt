@@ -1,0 +1,23 @@
+ss6
+N
+
+GK M_Kriro
+DFC B_Irahads
+DFC R_Peg
+DFC Q_Uchora
+DFC S_Arstendebt
+MFC R_Onyojeck
+MFC N_Ovrewvrids
+MFC Z_Erti
+MFC Y_Ishtusk
+FWC R_Lakroids
+FWC H_Ifishupr
+
+GK K_Ushowr
+DFC M_Kurstechae
+MFC L_Ubladus
+DFC Z_Pashick
+FWC U_Atrateg
+
+PK: R_Lakroids
+

@@ -1,0 +1,23 @@
+ss2
+N
+
+GK E_Osuadna
+DFC V_Liryobu
+DFC E_Chubu
+DFC A_Grin
+DFC T_Brepidne
+MFC R_Oksevra
+MFC Z_Unyoshtoi
+MFC A_Joog
+MFC N_Kroosyucki
+FWC G_Inhadsarst
+FWC L_Ubloonuk
+
+GK H_Ibtendoo
+DFC T_Uraezu
+MFC I_Sivrundu
+DFC P_Eshoe
+FWC Z_Tedno
+
+PK: G_Inhadsarst
+

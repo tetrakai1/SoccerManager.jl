@@ -1,0 +1,23 @@
+ss12
+N
+
+GK F_Britrebrua
+DFC T_Dewrtadi
+DFC D_Ryoejiv
+DFC Y_Ugaksop
+DFC Z_Jhidoind
+MFC F_Epadno
+MFC Z_Odsuvr
+MFC P_Jhoosy
+MFC O_Joeli
+FWC T_Satr
+FWC L_Abro
+
+GK M_Ebtenye
+DFC Y_Krewl
+MFC X_Cowz
+DFC P_Ifetr
+FWC H_Ryony
+
+PK: T_Satr
+

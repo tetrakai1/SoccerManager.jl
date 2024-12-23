@@ -1,0 +1,23 @@
+ss13
+N
+
+GK L_Upri
+DFC W_Udnoaksoa
+DFC H_Sindamo
+DFC B_Socl
+DFC Q_Soobtewrs
+MFC V_Yigra
+MFC A_Chamnuas
+MFC F_Pajhoacki
+MFC R_Job
+FWC P_Eskobse
+FWC Z_Ahoryi
+
+GK T_Emu
+DFC H_Ablewksejh
+MFC Y_Uckodramn
+DFC G_Dremnorst
+FWC D_Saeryevr
+
+PK: P_Eskobse
+

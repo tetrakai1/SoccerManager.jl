@@ -1,0 +1,23 @@
+ss19
+N
+
+GK B_Prapen
+DFC J_Jaeckuah
+DFC Z_Inubt
+DFC E_Lors
+DFC N_Eda
+MFC Z_Doet
+MFC A_Ojewnho
+MFC C_Undevr
+MFC I_Ribsoikr
+FWC H_Shavoo
+FWC U_Onye
+
+GK G_Odua
+DFC A_Grindodn
+MFC Y_Ved
+DFC C_Kroidsoyua
+FWC P_Bushtet
+
+PK: H_Shavoo
+

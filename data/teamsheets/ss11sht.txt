@@ -1,0 +1,23 @@
+ss11
+N
+
+GK U_Orste
+DFC G_Osya
+DFC T_Jeny
+DFC L_Dram
+DFC K_Prowr
+MFC R_Stov
+MFC K_Yurs
+MFC W_Utebs
+MFC A_Fudo
+FWC T_Lendubt
+FWC X_Ursavr
+
+GK O_Stoivrisko
+DFC X_Abtowvr
+MFC Y_Ruavru
+DFC E_Eshabtind
+FWC I_Jhemnoevro
+
+PK: T_Lendubt
+
