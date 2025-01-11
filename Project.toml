@@ -1,0 +1,5 @@
+[deps]
+Accessors = "7d9f7c33-5ae7-4f3b-8dc6-eff91059b697"
+InlineStrings = "842dd82b-1e85-43dc-bf29-5d0ee9dffc48"
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+StatsPlots = "f3b207a7-027a-5e70-b257-86293d7955fd"
