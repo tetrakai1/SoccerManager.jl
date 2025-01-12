@@ -37,7 +37,7 @@ retrieve_teamsheets(paths, TEAMNAMES; force = true)
 #############################
 
 # Hyperparameters
-nreps    = 3
+nreps    = 32
 nsteps   = 5_000_000
 thresh   = thresh0 = 0.1
 threshd  = 0.01
@@ -82,7 +82,7 @@ for i in 1:nsteps
         if rmse < rmse_best[2] && i > 1
             rmse_best = (i, rmse)
             sims_best = deepcopy(sims)
-            # stat_scatter(baseline, sims_best[1])
+            stat_scatter(baseline, sims_best[1])
         end
         # Update rosters from this step (new ratings are sampled from uniform +/1)
         # Only decrement threshold when a better fit was found
@@ -116,7 +116,7 @@ for i in 1:nsteps
         plotlog(rmselog, rmse_best[2], idx2; height = 15, width = 40)
 
         # Use Linux "watch" in a terminal to spot/sanity-check rosters
-        # save_rosters(rpaths, sims[1].tv)
+        save_rosters(rpaths, sims[1].tv)
     end
 end
 (time() - init_time)/60

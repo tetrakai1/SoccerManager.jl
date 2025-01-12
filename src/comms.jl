@@ -354,7 +354,7 @@ end
 
 Writes the game results (comms) to a file.
 
-The file contains a minute-by-minute game log, a dixed-width table for each `Comms`, and is named `tname[1]_tname[2].txt`
+The file contains a minute-by-minute game log, a fixed-width table for each `Comms`, and is named `tname[1]_tname[2].txt`
 
 # Arguments
 - `comm   :: Comms`          : A mutable `Comms` struct

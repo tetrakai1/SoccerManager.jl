@@ -1,5 +1,5 @@
 # SoccerManager.jl
-A performant soccer manager simulator written in julia
+A performant soccer manager simulator written in julia. Ported from https://github.com/eliben/esms.
 
 ```
 # Start julia REPL (this includes threads and optimization flags for example)
@@ -36,7 +36,7 @@ Status `~/path/to/package/Project.toml`
 ```
 
 
-Next navigate to the examples/playgames.jl script and paste the first few lines into the REPL. This will copy default roster/etc files into the chosen data directory:
+Next navigate to the examples/playgames.jl script, change path_dest to an appropriate location for the data directory, and paste the first few lines into the REPL. This will copy default roster/etc files into the chosen directory:
 ```
 julia> using InlineStrings
 
@@ -60,7 +60,21 @@ julia> paths     = init_user_data_dir(path_dest, force = false);
 New data directory created at: /home/user/Documents/SoccerManagerData/data
 ```
 
-Now it should be set up to try the rest of the example scripts. Next time julia is started use the project flag to automatically activate the environment:
+Now it should be set up to try the rest of the example scripts. First change the datadir path in those scripts to the same one used above. Eg:
+
+```
+path_dest = "/home/user/Documents/SoccerManagerData"
+```
+
+Next time julia is started use the project flag to automatically activate the environment:
 ```
 user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 ```
+
+TODO:
+1) Add minute-by-minute game log
+2) Halftime (added minutes)
+3) Activate "abilities" (ratings update during the season due to in-game performance)
+4) Get real-life data
+5) Unit tests
+
