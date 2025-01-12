@@ -7,7 +7,7 @@
           KAb, TAb, PAb, SAb,
           Pk, Gk, Tactic, SubCnt, Wts)
 
-Mutable struct containing the communications (game) data for a single team.
+Mutable struct containing the commentary (game) data for a single team.
 
 # Types
 - `T1 <: SVector{NLINEUP, String15}`

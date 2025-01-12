@@ -58,7 +58,6 @@ Stores all the info (stats, ratings, teamsheets, etc) about the players in the l
 - Used by : [`init_tv`](@ref)
 - Related : [`LgTable`](@ref)
 """
-
 struct TeamVec{N, Team} <: FieldVector{N, Team}
     v :: SVector{N, Team}
 end
@@ -205,7 +204,7 @@ An immutable `TeamNames` struct of team names.
 # See also
 - Uses    : [`TeamNames`](@ref)
 - Used by : [`FUNC`](@ref)
-- Related : [`init_lgtble`](@ref), [`reset_lgtble!`](@ref), [`reset_all!`](@ref), [`flatten_players`](@ref),
+- Related : [`init_lgtble`](@ref), [`reset_lgtble!`](@ref), [`reset_all!`](@ref)
 
 """
 function parse_league(path_league, nteams)

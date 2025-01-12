@@ -48,7 +48,7 @@ Postion abbreviations:
 
 # See also 
 - Uses    : [`FUNC`](@ref)
-- Used by : [`TSCONF`](@ref), [`UpdateTeamSheet`](@ref)
+- Used by : [`TSCONF`](@ref), [`update_teamsheet`](@ref)
 - Related : [`UpdateConfig`](@ref), [`RosterInfo`](@ref)
 """
 @with_kw struct TeamSheetConfig

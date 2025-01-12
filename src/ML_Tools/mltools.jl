@@ -67,7 +67,7 @@ Nothing. Mutates the `Sims` struct.
 # See also
 - Uses    : [`Sims`](@ref), [`playseason!`](@ref)
 - Used by : [`FUNC`](@ref)
-- Related : [`init_sims!`](@ref), [`reset_sims!`](@ref)
+- Related : [`init_sims`](@ref), [`reset_sims!`](@ref)
 """
 function playreps!(sims)
     @threads for i in eachindex(sims)
@@ -93,7 +93,7 @@ Nothing. Mutates `sims` as reset to default values.
 # See also
 - Uses    : [`Sims`](@ref), [`reset_all!`](@ref)
 - Used by : [`FUNC`](@ref)
-- Related : [`init_sims!`](@ref), [`playreps!`](@ref)
+- Related : [`init_sims`](@ref), [`playreps!`](@ref)
 """
 function reset_sims!(sims)
     for i in eachindex(sims)

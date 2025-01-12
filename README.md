@@ -1,5 +1,7 @@
 # SoccerManager.jl
-A performant soccer manager simulator written in Julia. Ported from [ESMS](https://github.com/eliben/esms).
+A performant soccer simulator for gaming and ML. 
+
+Ported from [ESMS](https://github.com/eliben/esms).
 
 ## Installation
 ```

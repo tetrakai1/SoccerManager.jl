@@ -37,7 +37,7 @@ A probability, `Float32` value between zero and one.
 
 # See also 
 - Used by : [`if_shot!`](@ref)
-- Related : [`gl_prob`](@ref), [`shot_prob`](@ref)
+- Related : [`gl_prob`](@ref), [`sht_prob`](@ref)
 """
 function tk_prob(comm, oppcomm)
     res = 0.4f0*3f0*sum(oppcomm.Tkm)/(2f0*sum(comm.Psm) + sum(comm.Shm))
@@ -61,7 +61,7 @@ A probability, `Float32` value between zero and one.
 
 # See also 
 - Used by : [`if_shot!`](@ref)
-- Related : [`shot_prob`](@ref), [`tk_prob`](@ref)
+- Related : [`sht_prob`](@ref), [`tk_prob`](@ref)
 """
 function gl_prob(comm, oppcomm, idx_shooter)
     idx_gk = oppcomm.Gk :: Int64
@@ -222,7 +222,7 @@ This may result in  Yellow/Red cards and/or a penalty kick. The fouler is ejecte
 # See also 
 - Uses    : [`Comms`](@ref), [`pick_player`](@ref)
 - Used by : [`mainloop!`](@ref)
-- Related : [`if_shot!`](@ref), [`rand_injury`](@ref)
+- Related : [`if_shot!`](@ref), [`rand_injury!`](@ref)
 """
 function if_foul!(comm, oppcomm, wts)
     chance_foul = (0.75f0 * sum(comm.Ag .* comm.Act))/10f3

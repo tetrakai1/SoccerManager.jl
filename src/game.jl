@@ -43,7 +43,7 @@ Performs automated `TeamSheet` selection after each game.
 Nothing. Mutates the `TeamVec` and `LgTable` vectors in `lg_data` after each game.
 
 # See also 
-- Uses    : [`LeagueData`](@ref), [`playgame!`](@ref), [`updatelgTble!`](@ref), [`update_roster`](@ref), [`update_teamsheet`](@ref)
+- Uses    : [`LeagueData`](@ref), [`playgame!`](@ref), [update_lgTble!](@ref), [`update_roster`](@ref), [`update_teamsheet`](@ref)
 - Used by : [`playseason!`](@ref)
 - Related : [`FUNC`](@ref)
 """
@@ -82,7 +82,7 @@ Stores the results in the corresponding `Comms` of `tv`.
 Nothing. Mutates the `TeamVec` vector.
 
 # See also 
-- Uses    : [`makecomm`](@ref), [`calc_contribs`](@ref), [`mainloop`](@ref)
+- Uses    : [`makecomm!`](@ref), [`calc_contribs!`](@ref), [`mainloop!`](@ref)
 - Used by : [`playgames!`](@ref)
 - Related : [`playseason!`](@ref)
 """

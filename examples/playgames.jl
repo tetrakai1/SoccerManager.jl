@@ -41,7 +41,7 @@ lg_data = init_league(rpaths, tspaths, TEAMNAMES, SCHED)
 TEAMNAMES[[1; 11]]
 playgame!(lg_data.tv, 1, 11)
 
-# Inspect the communications struct (containing the player-level game results) for team 1
+# Inspect the commentary struct (containing the player-level game results) for team 1
 struct2df(lg_data.tv[1].comm, 1:29)
 
 # Update the roster for team 1

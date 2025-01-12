@@ -17,3 +17,13 @@ UnicodePlots = "b8865327-cd53-5732-bb35-84acbb429228"
 
 [compat]
 Accessors = "=0.1.38"
+DataFrames = "=v1.7.0"
+Distributions = "=v0.25.116"
+Format = "=v1.3.7"
+InlineStrings = "=v1.4.2"
+Parameters = "=v0.12.3"
+Polyester = "=v0.7.16"
+StaticArrays = "=v1.9.10"
+StatsBase = "=v0.34.4"
+StatsPlots = "=v0.15.7"
+UnicodePlots = "=v3.7.2"

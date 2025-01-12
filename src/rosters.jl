@@ -248,7 +248,7 @@ A vector of roster indices, each corresponding a player found in comms.
 
 # See also
 - Uses    : [`Roster`](@ref), [`Comms`](@ref)
-- Used by : [`UpdateRoster`](@ref)
+- Used by : [`update_roster`](@ref)
 - Related : [`FUNC`](@ref)
 """
 function match_comms(roster, comms)

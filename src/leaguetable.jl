@@ -71,7 +71,7 @@ A `LgTable` vector.
 # See also 
 - Uses    : [`TeamStats`](@ref), [`LgTable`](@ref), [`TeamNames`](@ref)
 - Used by : [`FUNC`](@ref)
-- Related : [`update_lgtble!`](@ref), [`lgrank!`](@ref), [`reset_lgtble!`](@ref), [`init_tv`](@ref)
+- Related : [`update_lgTble!`](@ref), [`lgrank!`](@ref), [`reset_lgtble!`](@ref), [`init_tv`](@ref)
 """
 function init_lgtble(teamnames)
     nteams   = length(teamnames)
@@ -148,7 +148,7 @@ Nothing. Mutates a `LgTable` updated with the latest team rankings.
 # See also 
 - Uses    : [`LgTable`](@ref)
 - Used by : [`playseason!`](@ref)
-- Related : [`init_lgtble`](@ref), [`update_lgtble`](@ref), [`reset_lgtble!`](@ref)
+- Related : [`init_lgtble`](@ref), [`update_lgTble!`](@ref), [`reset_lgtble!`](@ref)
 """
 function lgrank!(lg_table, ::Val{N}) where {N}
     pts = MVector{N, Int16}(lg_table[i].Pts for i in eachindex(lg_table))
@@ -190,7 +190,7 @@ Nothing. Mutates a `LgTable` by resetting to default values.
 # See also 
 - Uses    : [`LgTable`](@ref), [`TeamStats`](@ref), [`TeamNames`](@ref)
 - Used by : [`reset_all!`](@ref)
-- Related : [`init_lgtble`](@ref), [`update_lgtble`](@ref), [`lgrank!`](@ref)
+- Related : [`init_lgtble`](@ref), [`update_lgTble!`](@ref), [`lgrank!`](@ref)
 """
 function reset_lgtble!(lg_table, teamnames)
     for i in eachindex(lg_table)

@@ -1,5 +1,5 @@
 """
-A performant soccer manager simulator.
+A performant soccer simulator for gaming and ML.
 
 The main data structure:
 ```
@@ -130,6 +130,16 @@ const TACTICSCONF = Ref{TacticsConfig}()
 const TSCONF      = Ref{TeamSheetConfig}()
 const UPDATECONF  = Ref{UpdateConfig}()
 export TACTICSCONF, TSCONF, UPDATECONF
+
+"""
+    FUNC()
+
+Placeholder function
+"""
+function FUNC()
+    return nothing
+end
+export FUNC
 
 end # module
 
