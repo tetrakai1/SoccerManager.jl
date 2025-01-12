@@ -3,6 +3,7 @@ A performant soccer manager simulator written in Julia. Ported from [ESMS](https
 
 ## Installation
 ```
+# After cloning/downloading repo
 # Start Julia REPL (note the threads and optimization arguments)
 user@pc:~/path/to/package$ julia --threads=2 -O3
 
@@ -37,7 +38,7 @@ Status `~/path/to/package/Project.toml`
 ```
 
 ### Set up data directory
-Next navigate to the examples/playgames.jl script, change path_dest to an appropriate location for the data directory, and paste the first few lines into the REPL. This will copy default roster/etc files into the chosen directory:
+Next navigate to the (examples/playgames.jl) script, change `path_dest` to an appropriate location for the data directory, and paste the first few lines into the REPL. This will copy default roster/etc files into the chosen directory:
 ```
 julia> using InlineStrings
 
