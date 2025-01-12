@@ -1,4 +1,5 @@
 name = "SoccerManager"
+uuid = "6d06c40e-7613-4e26-a178-3a42813e6df8"
 version = "0.1.0"
 
 [deps]
@@ -13,3 +14,6 @@ StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 StatsPlots = "f3b207a7-027a-5e70-b257-86293d7955fd"
 UnicodePlots = "b8865327-cd53-5732-bb35-84acbb429228"
+
+[compat]
+Accessors = "=0.1.38"
