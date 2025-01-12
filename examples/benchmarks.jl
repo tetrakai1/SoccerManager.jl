@@ -27,8 +27,12 @@ tspaths = joinpath.(paths.teamsheets, TEAMNAMES.*String15("sht.txt"));
 retrieve_rosters(paths,    TEAMNAMES; force = true)
 retrieve_teamsheets(paths, TEAMNAMES; force = true)
 
+# Initialize the league struct from file and constants
+lg_data = init_league(rpaths, tspaths, TEAMNAMES, SCHED)
 
-lg_data  = LeagueData(init_tv(rpaths, tspaths), init_lgtble(TEAMNAMES), TEAMNAMES, SCHED)
+###########################
+### Selected Benchmarks ###
+###########################
 
 @benchmark init_tv($rpaths, $tspaths)
 @benchmark init_lgtble($TEAMNAMES)
@@ -37,18 +41,3 @@ lg_data  = LeagueData(init_tv(rpaths, tspaths), init_lgtble(TEAMNAMES), TEAMNAME
 @benchmark playseason!(x)           setup = (x = deepcopy($lg_data))    evals = 1 seconds = 10
 @benchmark reset_all!(x)            setup = (x = deepcopy($lg_data))    evals = 1
 @benchmark save_rosters($rpaths, $lg_data.tv)
-
-
-# playgames!(lg_data, SCHED[1]) 
-playseason!(lg_data);
-sort(lgtble2df(lg_data.lg_table), :Pl)
-rost2df(lg_data.tv[1].roster)
-reset_all!(lg_data)
-
-
-
-# Pkg.add(path="/media/user1/2TB_ssd/JuliaProjects/SoccerManager/")
-
-
-
-

@@ -155,6 +155,9 @@ function lgrank!(lg_table, ::Val{N}) where {N}
     gds = MVector{N, Int16}(lg_table[i].GD  for i in eachindex(lg_table))
     gfs = MVector{N, Int16}(lg_table[i].GF  for i in eachindex(lg_table))
 
+    # Pad with one goal to avoid multiplying by zero
+    gfs .+= 1
+
     @inbounds for i in eachindex(lg_table)
         flag1 = (pts .== maximum(pts))
         vals  = ifelse.(flag1, 0, 9999)
