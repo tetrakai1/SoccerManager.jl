@@ -3,7 +3,7 @@ A performant soccer manager simulator written in Julia. Ported from [ESMS](https
 
 ## Installation
 ```
-# Start Julia REPL (this includes threads and optimization flags as an example)
+# Start Julia REPL (note the threads and optimization arguments)
 user@pc:~/path/to/package$ julia --threads=2 -O3
 
 # Enter the package manager REPL using the closing square bracket
@@ -67,7 +67,7 @@ Now the example scripts can be run. First, also change the data directory path i
 path_dest = "/home/user/Documents/SoccerManagerData"
 ```
 
-Next time Julia is started use the project flag to automatically activate the environment:
+Next time Julia is started use the `--project` argument to automatically activate the environment:
 ```
 user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 ```
@@ -82,11 +82,22 @@ user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 ### [fitratings.jl](examples/fitratings.jl)
 - Demonstrates a simple threshold acceptance algorithm for using season-level stats to optimize player ratings
 
+## Tips
+### Multi-threading
+- The `@multi` macro defined in [SoccerManager.jl](src/SoccerManager.jl) can be used to switch between multi-threading libraries at compile time. Use `@batch` unless nesting multiple multi-threaded loops (then use `@threads`).
+- Set the `--threads` command-line argument to the number of physical cores, not threads
+- A league of 20 teams can play only 10 games in parallel, so unless nesting inside an outer loop only 10 threads are needed
+
 ## TODO
 1. Minute-by-minute game log
 2. Halftime (added minutes)
 3. Activate "abilities" (ratings update during the season due to in-game performance)
-4. Get real-life data
-5. Run on GPU
+4. Improve tactics/teamsheet AI
+5. Add situations (planned/conditional subs and tactics)
 6. Unit tests
-
+7. Get real-life data
+8. More ML algorithms
+9. Run on GPU
+10. Multiple leagues in parallel
+11. Multiple seasons sequentially
+12. Simulate transfermarket activity
