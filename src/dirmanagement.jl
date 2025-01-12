@@ -121,6 +121,7 @@ function init_user_data_dir(path_dest; force = false)
         paths = (paths ..., teamsheets0 = joinpath(paths.teamsheets, "Teamsheets0"))
         paths = (paths ..., tactics     = joinpath(paths.data,       "tactics.dat"))
         paths = (paths ..., league      = joinpath(paths.data,       "league.dat"))
+        paths = (paths ..., table       = joinpath(paths.data,       "table.txt"))
     end
 
     return paths

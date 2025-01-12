@@ -89,11 +89,15 @@ playseason!(lg_data);
 sort(lgtble2df(lg_data.lg_table), :Pl)
 rost2df(lg_data.tv[1].roster)
 
+# Save the updated rosters to the data directory chosen above
+# N.B. This should not be in the package directory
+save_rosters(rpaths, lg_data.tv)
+
+# Save the updated league table
+write_lg_table(paths.table, lg_data.lg_table)
+
 # Reset the league to default values (will clear the above results)
 reset_all!(lg_data)
-
-
-
 
 
 
