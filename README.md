@@ -1,8 +1,9 @@
 # SoccerManager.jl
-A performant soccer manager simulator written in julia. Ported from https://github.com/eliben/esms.
+A performant soccer manager simulator written in Julia. Ported from [ESMS](https://github.com/eliben/esms).
 
+## Installation
 ```
-# Start julia REPL (this includes threads and optimization flags for example)
+# Start Julia REPL (this includes threads and optimization flags as an example)
 user@pc:~/path/to/package$ julia --threads=2 -O3
 
 # Enter the package manager REPL using the closing square bracket
@@ -35,7 +36,7 @@ Status `~/path/to/package/Project.toml`
 (SoccerManager) pkg> [backspace]
 ```
 
-
+### Set up data directory
 Next navigate to the examples/playgames.jl script, change path_dest to an appropriate location for the data directory, and paste the first few lines into the REPL. This will copy default roster/etc files into the chosen directory:
 ```
 julia> using InlineStrings
@@ -60,21 +61,32 @@ julia> paths     = init_user_data_dir(path_dest, force = false);
 New data directory created at: /home/user/Documents/SoccerManagerData/data
 ```
 
-Now it should be set up to try the rest of the example scripts. First change the datadir path in those scripts to the same one used above. Eg:
+Now the example scripts can be run. First, also change the data directory path in those scripts to the same one used above. Eg:
 
 ```
 path_dest = "/home/user/Documents/SoccerManagerData"
 ```
 
-Next time julia is started use the project flag to automatically activate the environment:
+Next time Julia is started use the project flag to automatically activate the environment:
 ```
 user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 ```
 
-TODO:
-1) Add minute-by-minute game log
-2) Halftime (added minutes)
-3) Activate "abilities" (ratings update during the season due to in-game performance)
-4) Get real-life data
-5) Unit tests
+## Examples
+### [benchmarks.jl](examples/benchmarks.jl)
+- Benchmarks for the highest-level functions (eg, reading/writing league data from file or playing an entire season)
+
+### [playgames.jl](examples/playgames.jl)
+- Demonstrates how to play a single game  to an entire season at once
+
+### [fitratings.jl](examples/fitratings.jl)
+- Demonstrates a simple threshold acceptance algorithm for using season-level stats to optimize player ratings
+
+## TODO
+1. Minute-by-minute game log
+2. Halftime (added minutes)
+3. Activate "abilities" (ratings update during the season due to in-game performance)
+4. Get real-life data
+5. Run on GPU
+6. Unit tests
 
