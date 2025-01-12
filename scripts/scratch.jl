@@ -1,3 +1,16 @@
+julia> @benchmark init_league($rpaths, $tspaths, $TEAMNAMES, $SCHED; usefile = false)
+BenchmarkTools.Trial: 7188 samples with 1 evaluation.
+ Range (min … max):  326.198 μs … 98.536 ms  ┊ GC (min … max):  0.00% … 92.55%
+ Time  (median):     455.972 μs              ┊ GC (median):     0.00%
+ Time  (mean ± σ):   687.467 μs ±  3.297 ms  ┊ GC (mean ± σ):  30.74% ±  6.54%
+
+                ▁▁▄▄▅▆█▇█▇▇▇▇▄▂▁                                
+  ▂▁▂▂▃▃▄▄▅▅▆▅███████████████████▆▆▅▄▄▄▃▃▃▃▃▃▂▃▂▂▃▃▃▂▂▂▂▂▂▂▂▂▂ ▄
+  326 μs          Histogram: frequency by time          671 μs <
+
+ Memory estimate: 981.83 KiB, allocs estimate: 3647.
+
+
 function doctemplate(f, args)
     x        = @code_typed f(args...)
     src      = x[1]

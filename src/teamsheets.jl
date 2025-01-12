@@ -232,7 +232,8 @@ function update_teamsheet(roster; tactic = "N")
             idx = choserank[i]
             @reset teamsheet.StartName[cnt1] = roster.Name[idx]
             # @reset teamsheet.StartPos[cnt1]  = pos*roster.Prs[idx][4:4]
-            @reset teamsheet.StartPos[cnt1]  = pos*ifelse(j == 1, String15(" "), String15("C"))
+            # @reset teamsheet.StartPos[cnt1]  = pos*ifelse(j == 1, String15(" "), String15("C"))
+            @reset teamsheet.StartPos[cnt1]  = String15(pos*ifelse(j == 1, String15(" "), String15("C")))
             @reset avail_fitness[idx]        = 0
             cnt1 += 1
         end
@@ -240,7 +241,8 @@ function update_teamsheet(roster; tactic = "N")
         for i in (nstart + 1):ntot
             idx = choserank[i]
             @reset teamsheet.SubName[cnt2] = roster.Name[idx]
-            @reset teamsheet.SubPos[cnt2]  = pos*ifelse(j == 1, String15(" "), String15("C"))
+            # @reset teamsheet.SubPos[cnt2]  = pos*ifelse(j == 1, String15(" "), String15("C"))
+            @reset teamsheet.SubPos[cnt2]  = String15(pos*ifelse(j == 1, String15(" "), String15("C")))
             @reset avail_fitness[idx]      = 0
             cnt2 += 1
         end

@@ -1,4 +1,3 @@
-
 using Accessors, InlineStrings, Printf, StaticArrays, StatsPlots
 using SoccerManager
 theme(:solarized)
