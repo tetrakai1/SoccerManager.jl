@@ -77,7 +77,7 @@ for i in 1:nsteps
             sims_best = deepcopy(sims)
             stat_scatter(baseline, sims_best[1])
         end
-        # Update rosters from this step (new ratings are sampled from uniform +/1)
+        # Update rosters from this step (new ratings are sampled from uniform +/-1)
         # Only decrement threshold when a better fit was found
         rmse_last = (i, rmse)
         thresh    = max(thresh - threshd, 0.001)

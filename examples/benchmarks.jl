@@ -5,12 +5,9 @@ using SoccerManager
 ### Set up paths/configs ###
 ############################
 
-# Copy default roster/etc files from package into chosen data directory
-# The directory will be created if it doesn't exist or can be overwritten by setting force = true
-# WARNING: Overwriting the directory will delete all the contents
-# A tuple of useful paths is also returned 
-path_dest = "/home/user1/Documents/SoccerManager"
-paths     = init_user_data_dir(path_dest, force = false);
+# Paths used to access the data directory structure
+path_datadir = "/home/user1/Documents/SoccerManager"
+paths        = get_data_paths(path_datadir);
 
 # Init various config structs
 const TSCONF[]      = TeamSheetConfig();

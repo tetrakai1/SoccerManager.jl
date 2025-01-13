@@ -46,7 +46,7 @@ Status `~/path/to/package/Project.toml`
 ```
 
 ### Set up data directory
-Next navigate to the (examples/setup_datadir.jl) script and open with a text editor, change `path_datadir` to an appropriate location for the data directory, and paste the first few lines into the REPL. This will copy default roster/etc files into the chosen directory:
+Next navigate to the [setup_datadir.jl](examples/setup_datadir.jl) script and open with a text editor, change `path_datadir` to an appropriate location for the data directory, and paste the first few lines into the REPL. This will copy default roster/etc files into the chosen directory:
 ```
 julia> using SoccerManager
 
