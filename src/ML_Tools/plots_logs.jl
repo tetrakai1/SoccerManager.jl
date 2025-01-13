@@ -129,7 +129,8 @@ function plot_player_panels(flatbase, flatsim; title = "")
     plot!(x -> x, ls = :dash, color = :gray)
   end
 
-  p = plot(plot_array..., plot_title = title, plot_titlefontsize = 8)
+  p = plot(plot_array..., plot_title = title, plot_titlefontsize = 8, dpi = 300)
+  
   return p
 end
 
@@ -145,7 +146,7 @@ The selected stats are described in `plot_player_panels`.
 - `lg_data2 :: LeagueData` : The simulated (comparison) league
 
 # Returns
-Nothing. Creates a panel of scatterplots.
+A panel of scatterplots.
 
 # See also
 - Uses    : [`LeagueData`](@ref), [`flatten_rosters`](@ref), [`plot_player_panels`](@ref)
@@ -158,4 +159,6 @@ function stat_scatter(lg_data1, lg_data2)
     flatsim  = flatten_rosters(lg_data2, Val(nteams))
     pl       = plot_player_panels(flatbase, flatsim; title = "")
     display(plot(pl))
+
+    return pl
 end

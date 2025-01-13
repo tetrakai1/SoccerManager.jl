@@ -111,6 +111,9 @@ Threads: 32 default, 0 interactive, 16 GC (on 64 virtual cores)
 - `@threads:` `13.545 ms (6231 allocations: 850.22 KiB)`
 - `@batch  :` `5.211  ms (113  allocations: 29.06 KiB)`
 
+## ML Benchmarks
+![baseline](docs/src/figures/Baseline.png)
+
 ## TODO
 1. Minute-by-minute game log
 2. Halftime (added minutes)
