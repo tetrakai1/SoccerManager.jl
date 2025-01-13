@@ -46,34 +46,28 @@ Status `~/path/to/package/Project.toml`
 ```
 
 ### Set up data directory
-Next navigate to the (examples/playgames.jl) script and open with a text editor, change `path_dest` to an appropriate location for the data directory, and paste the first few lines into the REPL. This will copy default roster/etc files into the chosen directory:
+Next navigate to the (examples/setup_datadir.jl) script and open with a text editor, change `path_datadir` to an appropriate location for the data directory, and paste the first few lines into the REPL. This will copy default roster/etc files into the chosen directory:
 ```
-julia> using InlineStrings
-
 julia> using SoccerManager
-
-julia> import SoccerManager: update_roster, lgrank!
-
-       ############################
-       ### Set up paths/configs ###
-       ############################
 
        # Copy default roster/etc files from package into chosen data directory
        # The directory will be created if it doesn't exist or can be overwritten by setting force = true
        # WARNING: Overwriting the directory will delete all the contents
        # A tuple of useful paths is also returned
 
-julia> path_dest = "/home/user/Documents/SoccerManagerData"
+julia> path_datadir = "/home/user/Documents/SoccerManagerData"
 "/home/user/Documents/SoccerManagerData"
 
-julia> paths     = init_user_data_dir(path_dest, force = false);
+julia> paths        = init_user_data_dir(path_datadir, force = false);
 New data directory created at: /home/user/Documents/SoccerManagerData/data
 ```
 
-Now the example scripts can be run. They are meant to be run interactively in the REPL, each in a fresh Julia session. Continue with the `playgames.jl` script, or exit julia (`ctrl-d`). Before running the others, also change the data directory path in those scripts to the same one used above. Eg:
+Exit the Julia REPL using `ctrl-d`.
+
+Now the example scripts can be run. They are meant to be run interactively in the REPL, each in a fresh Julia session. Before running the others, also change the data directory path in those scripts to the same one used above. Eg:
 
 ```
-path_dest = "/home/user/Documents/SoccerManagerData"
+path_datadir = "/home/user/Documents/SoccerManagerData"
 ```
 
 Next time Julia is started use the `--project` argument to automatically activate the environment:
@@ -82,6 +76,9 @@ user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 ```
 
 ## Examples
+### [setup_datadir.jl](examples/setup_datadir.jl)
+- Short script for setting up the user data directory
+
 ### [benchmarks.jl](examples/benchmarks.jl)
 - Benchmarks for the higher-level functions (eg, reading/writing league data from file or playing an entire season)
 
@@ -146,7 +143,7 @@ The bottom plot shows the algorithm tuning the ratings. The target corresponds t
 3. Activate "abilities" (ratings update during the season due to in-game performance)
 4. Improve tactics/teamsheet AI
 5. Add situations (planned/conditional subs and tactics)
-6. Unit tests
+6. Unit/integration/performance tests
 7. Get real-life data
 8. More ML algorithms
 9. Run on GPU

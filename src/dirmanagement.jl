@@ -60,6 +60,35 @@ function retrieve_teamsheets(paths, teamnames; force = false)
         return nothing
 end
 
+"""
+    get_data_paths(path_datadir)
+
+Returns paths to various useful parts of the data directory.
+
+# Arguments
+- `path_dest :: String` : The destination data directory
+
+# Returns
+A `NamedTuple` of paths to the various data.
+
+# See also
+- Uses    : [`FUNC`](@ref)
+- Used by : [`init_user_data_dir`](@ref)
+- Related : [`FUNC`](@ref)
+"""
+function get_data_paths(path_datadir)
+    paths = (proj                   = path_dest,)
+    paths = (paths ..., data        = joinpath(path_dest,        "data"))
+    paths = (paths ..., rosters     = joinpath(paths.data,       "rosters"))
+    paths = (paths ..., teamsheets  = joinpath(paths.data,       "teamsheets"))
+    paths = (paths ..., rosters0    = joinpath(paths.rosters,    "Rosters0"))
+    paths = (paths ..., teamsheets0 = joinpath(paths.teamsheets, "Teamsheets0"))
+    paths = (paths ..., tactics     = joinpath(paths.data,       "tactics.dat"))
+    paths = (paths ..., league      = joinpath(paths.data,       "league.dat"))
+    paths = (paths ..., table       = joinpath(paths.data,       "table.txt"))
+
+    return paths
+end
 
 """
     init_user_data_dir(path_dest; force = false)
@@ -80,7 +109,7 @@ If the directory exists and force == false, then it only returns a set of paths.
 A `NamedTuple` of paths to the various data.
 
 # See also
-- Uses    : [`DATADIR0`](@ref)
+- Uses    : [`DATADIR0`](@ref), [`get_data_paths`](@ref)
 - Used by : [`FUNC`](@ref)
 - Related : [`retrieve_rosters`](@ref), [`retrieve_teamsheets`](@ref)
 """
@@ -113,18 +142,20 @@ function init_user_data_dir(path_dest; force = false)
     end
 
     if response == "yes"
-        paths = (proj                   = path_dest,)
-        paths = (paths ..., data        = path_data)
-        paths = (paths ..., rosters     = joinpath(paths.data,       "rosters"))
-        paths = (paths ..., teamsheets  = joinpath(paths.data,       "teamsheets"))
-        paths = (paths ..., rosters0    = joinpath(paths.rosters,    "Rosters0"))
-        paths = (paths ..., teamsheets0 = joinpath(paths.teamsheets, "Teamsheets0"))
-        paths = (paths ..., tactics     = joinpath(paths.data,       "tactics.dat"))
-        paths = (paths ..., league      = joinpath(paths.data,       "league.dat"))
-        paths = (paths ..., table       = joinpath(paths.data,       "table.txt"))
+        # paths = (proj                   = path_dest,)
+        # paths = (paths ..., data        = path_data)
+        # paths = (paths ..., rosters     = joinpath(paths.data,       "rosters"))
+        # paths = (paths ..., teamsheets  = joinpath(paths.data,       "teamsheets"))
+        # paths = (paths ..., rosters0    = joinpath(paths.rosters,    "Rosters0"))
+        # paths = (paths ..., teamsheets0 = joinpath(paths.teamsheets, "Teamsheets0"))
+        # paths = (paths ..., tactics     = joinpath(paths.data,       "tactics.dat"))
+        # paths = (paths ..., league      = joinpath(paths.data,       "league.dat"))
+        # paths = (paths ..., table       = joinpath(paths.data,       "table.txt"))
+        paths = get_data_paths(path_dest)
     end
 
     return paths
 end
+
 
 
