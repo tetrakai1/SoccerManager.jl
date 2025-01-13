@@ -6,8 +6,6 @@
 ```@meta
 CurrentModule = SoccerManager
 CollapsedDocStrings = true
-DocTestSetup = quote
-    using SoccerManager
 end
 ```
 

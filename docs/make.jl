@@ -7,4 +7,5 @@ makedocs(sitename  = "Soccer Manager",
          checkdocs = :all,
          format = Documenter.HTML(collapselevel    = 1,
                                   sidebar_sitename = false,
-                                  size_threshold   = 300_000))
+                                  size_threshold   = 300_000),
+        pages = ["Home" => "index.md"])
