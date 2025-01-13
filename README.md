@@ -12,7 +12,7 @@ To that end, the original game was rewritten in Julia to be ~1000x faster. Besid
 ## Installation
 ```
 # After cloning/downloading repo
-# Start Julia REPL (note the threads and optimization arguments)
+# Start Julia REPL (threads and optimization arguments are included as an example)
 user@pc:~/path/to/package$ julia --threads=2 -O3
 
 # Enter the package manager REPL using the closing square bracket
@@ -46,7 +46,7 @@ Status `~/path/to/package/Project.toml`
 ```
 
 ### Set up data directory
-Next navigate to the (examples/playgames.jl) script, change `path_dest` to an appropriate location for the data directory, and paste the first few lines into the REPL. This will copy default roster/etc files into the chosen directory:
+Next navigate to the (examples/playgames.jl) script and open with a text editor, change `path_dest` to an appropriate location for the data directory, and paste the first few lines into the REPL. This will copy default roster/etc files into the chosen directory:
 ```
 julia> using InlineStrings
 
@@ -70,7 +70,7 @@ julia> paths     = init_user_data_dir(path_dest, force = false);
 New data directory created at: /home/user/Documents/SoccerManagerData/data
 ```
 
-Now the example scripts can be run. First, also change the data directory path in those scripts to the same one used above. Eg:
+Now the example scripts can be run. They are meant to be run interactively in the REPL, each in a fresh Julia session. Continue with the `playgames.jl` script, or exit julia (`ctrl-d`). Before running the others, also change the data directory path in those scripts to the same one used above. Eg:
 
 ```
 path_dest = "/home/user/Documents/SoccerManagerData"
@@ -95,7 +95,8 @@ user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 ### Multi-threading
 - The `@multi` macro defined in [SoccerManager.jl](src/SoccerManager.jl) can be used to switch between multi-threading libraries at compile time. Use `@batch` unless nesting multiple multi-threaded loops (then use `@threads`).
 - Set the `--threads` command-line argument to the number of physical cores, not threads
-- A league of 20 teams can play only 10 games in parallel, so unless nesting inside an outer loop only 10 threads are needed
+- A league of 20 teams can play only 10 games in parallel, so unless nesting inside an outer loop `@batch` is best and only 10 threads are needed
+- On the other hand, the algorithm in the [fitratings.jl](examples/fitratings.jl) script plays multiple replicates of the same season in parallel to average out the random variation. For this usecase `@threads` is best, and `nreps*10` threads are ideal. NB: due to the composability of `@threads` performance can still benefit from multi-threading even if oversubscribed.
 
 ## Performance Benchmarks
 #### System Specs

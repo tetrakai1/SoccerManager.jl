@@ -2,7 +2,6 @@ using Accessors, InlineStrings, Printf, StaticArrays, StatsPlots
 using SoccerManager
 theme(:solarized)
 
-
 ############################
 ### Set up paths/configs ###
 ############################
@@ -31,14 +30,13 @@ tspaths = joinpath.(paths.teamsheets, TEAMNAMES.*String15("sht.txt"));
 retrieve_rosters(paths,    TEAMNAMES; force = true)
 retrieve_teamsheets(paths, TEAMNAMES; force = true)
 
-
 #############################
 ### Threshold Acceptance  ###
 #############################
 
 # Hyperparameters
-nreps    = 32
-nsteps   = 50_000
+nreps    = 128
+nsteps   = 100_000
 thresh   = thresh0 = 0.1
 threshd  = 0.01
 stepsize = stepsize0 = Int16(1)
@@ -48,13 +46,11 @@ nteams   = length(rpaths)
 baseline = init_league(rpaths, tspaths, TEAMNAMES, SCHED);
 playseason!(baseline);
 
-
 # Get baseline rmse (using the same skill ratings)
 sims = init_sims(rpaths, tspaths, TEAMNAMES, SCHED, nreps);
 playreps!(sims);
 rmse_base = calc_metric(baseline, sims)
 stat_scatter(baseline, sims[1])
-
 
 # Initialization
 # init_rand_ratings!(sims);
@@ -120,7 +116,4 @@ for i in 1:nsteps
     end
 end
 elapsed = (time() - init_time)/60
-
-# sims = deepcopy(sims_last);
-# sims = deepcopy(sims_best);
 
