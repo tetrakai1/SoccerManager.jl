@@ -124,6 +124,7 @@ The left plot shows the random variation when replaying a season using the same 
 
 For the right plot, threshold-acceptance was used to choose ratings without knowledge of the true values (as would be the case when comparing to real-life data).
 
+The bottom plot shows the algorithm tuning the ratings. The target corresponds to baseline variation.
 <table>
   <tr>
     <td align="center">Baseline Variation</td>
