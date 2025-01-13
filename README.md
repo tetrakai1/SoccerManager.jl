@@ -91,6 +91,26 @@ user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 - Set the `--threads` command-line argument to the number of physical cores, not threads
 - A league of 20 teams can play only 10 games in parallel, so unless nesting inside an outer loop only 10 threads are needed
 
+## Benchmarks
+#### System Specs
+```
+Julia Version 1.11.2
+Commit 5e9a32e7af2 (2024-12-01 20:02 UTC)
+Build Info:
+  Official https://julialang.org/ release
+Platform Info:
+  OS: Linux (x86_64-linux-gnu)
+  CPU: 64 × AMD Ryzen Threadripper 2990WX 32-Core Processor
+  WORD_SIZE: 64
+  LLVM: libLLVM-16.0.6 (ORCJIT, znver1)
+Threads: 32 default, 0 interactive, 16 GC (on 64 virtual cores)
+```
+#### Single game
+`50.991 μs (0 allocations: 0 bytes)`
+#### Season with 20 teams (38 games each)
+- `@threads:` `13.545 ms (6231 allocations: 850.22 KiB)`
+- `@batch  :` `5.211  ms (113  allocations: 29.06 KiB)`
+
 ## TODO
 1. Minute-by-minute game log
 2. Halftime (added minutes)
@@ -103,4 +123,4 @@ user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 9. Run on GPU
 10. Multiple leagues in parallel
 11. Multiple seasons sequentially
-12. Simulate transfermarket activity
+12. Simulate transfer market activity

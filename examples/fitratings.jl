@@ -37,8 +37,8 @@ retrieve_teamsheets(paths, TEAMNAMES; force = true)
 #############################
 
 # Hyperparameters
-nreps    = 32
-nsteps   = 5_000_000
+nreps    = 3
+nsteps   = 50_000
 thresh   = thresh0 = 0.1
 threshd  = 0.01
 stepsize = stepsize0 = Int16(1)
