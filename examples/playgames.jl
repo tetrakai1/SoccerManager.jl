@@ -42,7 +42,9 @@ TEAMNAMES[[1; 11]]
 playgame!(lg_data.tv, 1, 11)
 
 # Inspect the commentary struct (containing the player-level game results) for team 1
-struct2df(lg_data.tv[1].comm, 1:29)
+# show(comm2df(lg_data.tv[1].comm), allcols = true)
+comm2df(lg_data.tv[1].comm)
+
 
 # Update the roster for team 1
 lg_data.tv[1].roster = update_roster(lg_data.tv[1].roster, lg_data.tv[1].comm);

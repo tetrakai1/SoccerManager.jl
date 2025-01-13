@@ -2,7 +2,7 @@
 ```@contents
 ```
 
-## Docstrings
+## Documentation
 ```@meta
 CurrentModule = SoccerManager
 CollapsedDocStrings = true

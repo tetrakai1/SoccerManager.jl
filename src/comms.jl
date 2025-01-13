@@ -357,8 +357,8 @@ Writes the game results (comms) to a file.
 The file contains a minute-by-minute game log, a fixed-width table for each `Comms`, and is named `tname[1]_tname[2].txt`
 
 # Arguments
-- `comm   :: Comms`          : A mutable `Comms` struct
 - `dir    :: String`         : Path to the directory where the file is saved
+- `comms  :: Tuple{Comms}`   : A tuple of two `Comms` structs (ie, teams that played the match)
 - `tnames :: Vector{String}` : A vector containing the names of the two teams
 
 # Returns
@@ -369,7 +369,7 @@ Nothing.
 - Used by : [`FUNC`](@ref)
 - Related : [`write_roster`](@ref)
 """
-function write_comms(comms, dir, tnames)
+function write_comms(dir, comms, tnames)
     commname = tnames[1]*"_"*tnames[2]*".txt"
     fname    = joinpath(dir, commname)
     sel      = SVector{20}(:St, :Tk, :Ps, :Sh, :Sm, 
@@ -432,4 +432,27 @@ function write_comms(comms, dir, tnames)
         end
     end
     return nothing
+end
+
+"""
+    comm2df(comm)
+
+Converts a Roster struct to a `DataFrame`.
+
+# Arguments
+- `comm :: Comms` : A mutable `Comms` struct
+
+# Returns
+A `DataFrame` containing the roster data.
+
+# See also
+- Uses    : [`Comms`](@ref), [`getfield_unroll`](@ref)
+- Used by : [`FUNC`](@ref)
+- Related : [`FUNC`](@ref)
+"""
+function comm2df(comm)
+    fields  = SVector(fieldnames(Comms))
+    commvec = [getfield_unroll(comm, fields[i]) for i in eachindex(fields)]
+
+    return DataFrame(commvec[1:33], fields[1:33])
 end

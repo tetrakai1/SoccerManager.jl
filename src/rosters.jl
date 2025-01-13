@@ -446,8 +446,7 @@ A `DataFrame` containing the roster data.
 """
 function rost2df(roster)
     fields  = SVector(fieldnames(Roster))
-    ncol    = length(fields)
-    rostvec = [getfield_unroll(roster, fields[i]) for i in 1:ncol]
+    rostvec = [getfield_unroll(roster, fields[i]) for i in eachindex(fields)]
 
     return DataFrame(rostvec, fields)
 end

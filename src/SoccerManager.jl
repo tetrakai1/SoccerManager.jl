@@ -30,10 +30,10 @@ using StatsPlots: plot, plot!, scatter
 # Package Exports
 export init_user_data_dir, retrieve_rosters, retrieve_teamsheets
 export LeagueData, Roster, TeamStats, TeamVec, LgTable
-export parse_roster, parse_teamsheet, parse_league, update_teamsheet
+export parse_roster, parse_teamsheet, parse_league, update_teamsheet, update_roster, lgrank!
 export init_tv, init_lgtble, init_league
 export playgame!, playgames!, playseason!
-export rost2df, lgtble2df, struct2df, flatten_rosters
+export rost2df, lgtble2df, struct2df, comm2df, flatten_rosters
 export reset_all!, save_rosters, write_roster, write_lg_table
 export UpdateConfig, TeamSheetConfig, parse_tactics, makeschedule
 export init_sims, calc_metric, reset_sims!, playreps!, update_ratings!
