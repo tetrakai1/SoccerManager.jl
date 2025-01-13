@@ -91,7 +91,7 @@ user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 - Set the `--threads` command-line argument to the number of physical cores, not threads
 - A league of 20 teams can play only 10 games in parallel, so unless nesting inside an outer loop only 10 threads are needed
 
-## Benchmarks
+## Performance Benchmarks
 #### System Specs
 ```
 Julia Version 1.11.2
@@ -112,7 +112,22 @@ Threads: 32 default, 0 interactive, 16 GC (on 64 virtual cores)
 - `@batch  :` `5.211  ms (113  allocations: 29.06 KiB)`
 
 ## ML Benchmarks
-![baseline](docs/src/figures/Baseline.png)
+The algorithm in [fitratings.jl](examples/fitratings.jl) was used to select player *skill ratings* according to how well the end-of-season stats fit those from a baseline/ground-truth season. 
+
+The left plot shows the random variation when replaying a season using the same ratings. This corresponds to the best fit possible given the randomness in the game engine.
+
+For the right plot, threshold-acceptance was used to choose ratings without knowledge of the true values (as would be the case when comparing to real-life data).
+<table>
+  <tr>
+    <td>Baseline Variation</td>
+    <td>Best Fit</td>
+  </tr>
+  <tr>
+    <td><img src="/docs/src/figures/Baseline.png" width="450" height="300"></td>
+    <td><img src="/docs/src/figures/Fit.png"      width="450" height="300"></td>
+  </tr>
+ </table>
+
 
 ## TODO
 1. Minute-by-minute game log
