@@ -10,6 +10,7 @@ The ultimate goal is an open-source game that can realistically track the real-l
 To that end, the original game was rewritten in Julia to be ~1000x faster. Besides more efficiently tuning the ratings, it could also serve as a base for developing a more realistic engine.
 
 ## Installation
+#### Unregistered private repo
 ```
 # After cloning/downloading repo
 # Start Julia REPL (threads and optimization arguments are included as an example)
@@ -46,7 +47,7 @@ Status `~/path/to/package/Project.toml`
 ```
 
 ### Set up data directory
-Next navigate to the [setup_datadir.jl](examples/setup_datadir.jl) script and open with a text editor, change `path_datadir` to an appropriate location for the data directory, and paste the first few lines into the REPL. This will copy default roster/etc files into the chosen directory:
+Next navigate to the [setup_datadir.jl](examples/setup_datadir.jl) script and open with a text editor, change `path_datadir` to an appropriate location for the data directory, and paste into the REPL. This will copy default roster/etc files into the chosen directory:
 ```
 julia> using SoccerManager
 

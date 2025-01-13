@@ -3,21 +3,40 @@ A performant soccer simulator for gaming and ML.
 
 The main data structure:
 ```
-LeagueData
-- TeamVec{nteams}
-    - Team[1]
-        - Roster
-        - TeamSheet
-        - Comms
-    [...]
-    - Team[nteams]
-        - Roster
-        - TeamSheet
-        - Comms
-- LgTable
-- TeamNames
-- Schedule
+- LeagueData
+    - TeamVec{nteams}
+        - Team[1]
+            - Roster
+            - TeamSheet
+            - Comms
+        [...]
+        - Team[nteams]
+            - Roster
+            - TeamSheet
+            - Comms
+    - LgTable
+    - TeamNames
+    - Schedule
 ```
+
+Expected data directory structure:
+```
+- data
+    - comms
+        - [actively used comm *_*.txt files]
+    - rosters
+        - Rosters0
+            - [clean roster *.txt files]
+        - [actively used roster *.txt files]
+    - teamsheets
+        - Teamsheets0
+            - [clean teamsheet *sht.txt files]
+        - [actively used teamsheet *sht.txt files]
+    - league.dat
+    - tactics.dat
+    - [actively used table.txt file]
+```
+
 """
 module SoccerManager
 
@@ -38,7 +57,7 @@ export reset_all!, save_rosters, write_roster, write_lg_table
 export UpdateConfig, TeamSheetConfig, parse_tactics, makeschedule
 export init_sims, calc_metric, reset_sims!, playreps!, update_ratings!
 export init_rand_ratings!, init_ratings!, rand_ratings, equal_ratings, maxmin, init_percent_ratings!
-export plotlog, printlog, stat_scatter
+export plotlog, printlog, stat_scatter, plot_error
 
 # Allows passing an SVector to avoid allocations
 StatsBase.weights(w::Weights) = w

@@ -43,7 +43,7 @@ Performs automated `TeamSheet` selection after each game.
 Nothing. Mutates the `TeamVec` and `LgTable` vectors in `lg_data` after each game.
 
 # See also 
-- Uses    : [`LeagueData`](@ref), [`playgame!`](@ref), [update_lgTble!](@ref), [`update_roster`](@ref), [`update_teamsheet`](@ref)
+- Uses    : [`LeagueData`](@ref), [`playgame!`](@ref), [update_lgtble!](@ref), [`update_roster`](@ref), [`update_teamsheet`](@ref)
 - Used by : [`playseason!`](@ref)
 - Related : [`FUNC`](@ref)
 """
@@ -56,7 +56,7 @@ function playgames!(lg_data, wk_sched)
         playgame!(tv, idx1, idx2)
         comms = (tv[idx1].comm, tv[idx2].comm)
 
-        update_lgTble!(lg_table, comms, idx1, idx2)
+        update_lgtble!(lg_table, comms, idx1, idx2)
         for j in 1:2
             tv[idx[j]].roster  = update_roster(tv[idx[j]].roster, comms[j])
             tv[idx[j]].teamsht = update_teamsheet(tv[idx[j]].roster; tactic = "N")

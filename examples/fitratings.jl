@@ -1,4 +1,4 @@
-using Accessors, InlineStrings, Printf, StaticArrays, StatsPlots
+using Accessors, Format, InlineStrings, Printf, StaticArrays, StatsPlots
 using SoccerManager
 theme(:solarized)
 
@@ -114,3 +114,5 @@ for i in 1:nsteps
 end
 elapsed = (time() - init_time)/60
 
+# Plot error curve
+# plot_error(rmselog, rmse_base, 1:nsteps, nreps, elapsed)
