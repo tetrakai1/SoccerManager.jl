@@ -1,7 +1,7 @@
 # SoccerManager.jl
 A performant soccer simulator for gaming and ML. Based on [ESMS](https://github.com/eliben/esms).
 
-The game consists of (human or "AI") players submitting [teamsheets](data/teamsheets/apesht.txt) to select footballers from a [roster](data/rosters/ape.txt). The data for a pair of teams is then plugged into a game engine that pseudo-randomly chooses whether there was a shot, tackle, injury, etc each minute of the game.
+The game consists of (human or "AI") players submitting [teamsheets](data/teamsheets/apesht.txt) to select footballers from a [roster](data/rosters/ape.txt). The data for a pair of teams is then plugged into a game engine that pseudo-randomly chooses whether there was a shot, tackle, injury, etc each minute of the game. The results depend on the player ratings, but are also very sensitive to fatigue and the tactics (Attacking, Defensive, etc) used by each team.
 
 Tuning the ratings of each player so the engine outputs realistic results is an interesting optmization problem. For a single league of 20 teams consisting of 30 players each, there are `20*30*6 = 3600` interdependent ratings to fit. The ratings are discrete and constrained between 1 and 99, which also poses a difficulty for many optimization algorithms.
 
@@ -96,7 +96,7 @@ user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 - The `@multi` macro defined in [SoccerManager.jl](src/SoccerManager.jl) can be used to switch between multi-threading libraries at compile time. Use `@batch` unless nesting multiple multi-threaded loops (then use `@threads`).
 - Set the `--threads` command-line argument to the number of physical cores, not threads
 - A league of 20 teams can play only 10 games in parallel, so unless nesting inside an outer loop `@batch` is best and only 10 threads are needed
-- On the other hand, the algorithm in the [fitratings.jl](examples/fitratings.jl) script plays multiple replicates of the same season in parallel to average out the random variation. For this usecase `@threads` is best, and `nreps*10` threads are ideal. NB: due to the composability of `@threads` performance can still benefit from multi-threading even if oversubscribed.
+- On the other hand, the algorithm in the [fitratings.jl](examples/fitratings.jl) script plays multiple replicates of the same season in parallel to average out the random variation. For this usecase `@threads` is best, and at least `nreps*nteams/2` threads is ideal. NB: due to the composability of `@threads`, performance can still benefit from multi-threading even if oversubscribed.
 
 ## Performance Benchmarks
 #### System Specs
