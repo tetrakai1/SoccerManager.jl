@@ -130,7 +130,7 @@ function plot_player_panels(flatbase, flatsim; title = "")
   end
 
   p = plot(plot_array..., plot_title = title, plot_titlefontsize = 8, dpi = 300)
-  
+
   return p
 end
 
@@ -161,4 +161,54 @@ function stat_scatter(lg_data1, lg_data2)
     display(plot(pl))
 
     return pl
+end
+
+
+"""
+    plot_error(rmselog, target, idx, nreps, elapsed)
+
+Plots the error curve of a fit.
+
+# Arguments
+- `rmselog :: Vector{Float32, Bool}` : RMSE and accept-flag for each step
+- `target  :: Float`                 : A target RMSE value
+- `idx     :: Int`                   : Index of the last completed step
+- `nreps   :: Int`                   : Number of repetitions used
+- `elapsed :: Float64`               : Minutes elapsed
+
+# Returns
+A plot of the error vs step.
+
+# See also
+- Uses    : [`FUNC`](@ref)
+- Used by : [`FUNC`](@ref)
+- Related : [`FUNC`](@ref)
+"""
+function plot_error(rmselog, target, idx, nreps, elapsed)
+    nsteps    = length(idx)
+    idx_flags = findall(rmselog[j][2] for j in idx)
+    rmsevals  = [rmselog[j][1] for j in idx]
+
+    ylim  = extrema([.95*target; rmsevals])
+    xvals = idx_flags .+ idx[1] .- 1
+    yvals = rmsevals[idx_flags]
+
+    subtitle = "(nsteps = " * cfmt("%\'d", nsteps) * 
+               ", nreps = " * string(nreps) * 
+               ", elapsed = " * string(round(elapsed, digits = 1)) *" min)"
+    p1 = plot(idx, rmsevals; 
+              color         = :cyan, 
+              ylim          = ylim, 
+              legend        = false, 
+              gridalpha     = 0.5,
+              xscale        = :log10, ylab = "RMSE (per team)", 
+              title         = "Error Curve\n"*subtitle,
+              titlefontsize = 10)
+    p1 = plot!(p1, xvals, yvals; color = :red)
+    p1 = StatsPlots.hline!(p1, [target]; color = :green)
+    annotate!(2, target, text("Target", :green, :bottom, 12))
+
+    display(plot(p1))
+
+    return p1
 end

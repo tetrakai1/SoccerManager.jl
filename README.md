@@ -1,7 +1,13 @@
 # SoccerManager.jl
-A performant soccer simulator for gaming and ML. 
+A performant soccer simulator for gaming and ML. Based on [ESMS](https://github.com/eliben/esms).
 
-Ported from [ESMS](https://github.com/eliben/esms).
+The game consists of (human or "AI") players submitting [teamsheets](data/teamsheets/apesht.txt) to select footballers from a [roster](data/rosters/ape.txt). The data for a pair of teams is then plugged into a game engine that pseudo-randomly chooses whether there was a shot, tackle, injury, etc each minute of the game.
+
+Tuning the ratings of each player so the engine outputs realistic results is an interesting optmization problem. For a single league of 20 teams consisting of 30 players each, there are `20*30*6 = 3600` interdependent ratings to fit. The ratings are discrete and constrained between 1 and 99, which also poses a difficulty for many optimization algorithms.
+
+The ultimate goal is an open-source game that can realistically track the real-life performance of many leagues worth of players over multiple seasons, according to a predetermined algorithm.
+
+To that end, the original game was rewritten in Julia to be ~1000x faster. Besides more efficiently tuning the ratings, it could also serve as a base for developing a more realistic engine.
 
 ## Installation
 ```
@@ -77,13 +83,13 @@ user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 
 ## Examples
 ### [benchmarks.jl](examples/benchmarks.jl)
-- Benchmarks for the highest-level functions (eg, reading/writing league data from file or playing an entire season)
+- Benchmarks for the higher-level functions (eg, reading/writing league data from file or playing an entire season)
 
 ### [playgames.jl](examples/playgames.jl)
-- Demonstrates how to play a single game  to an entire season at once
+- Demonstrates how to play a single game, week of games, or an entire season at once
 
 ### [fitratings.jl](examples/fitratings.jl)
-- Demonstrates a simple threshold acceptance algorithm for using season-level stats to optimize player ratings
+- Demonstrates a simple threshold acceptance algorithm for using season-end stats to optimize player ratings
 
 ## Tips
 ### Multi-threading
@@ -112,7 +118,7 @@ Threads: 32 default, 0 interactive, 16 GC (on 64 virtual cores)
 - `@batch  :` `5.211  ms (113  allocations: 29.06 KiB)`
 
 ## ML Benchmarks
-The algorithm in [fitratings.jl](examples/fitratings.jl) was used to select player *skill ratings* according to how well the end-of-season stats fit those from a baseline/ground-truth season. 
+The algorithm in [fitratings.jl](examples/fitratings.jl) was used to select player *skill ratings* according to how well the season-end stats fit those from a baseline/ground-truth season. 
 
 The left plot shows the random variation when replaying a season using the same ratings. This corresponds to the best fit possible given the randomness in the game engine.
 
@@ -120,14 +126,16 @@ For the right plot, threshold-acceptance was used to choose ratings without know
 <table>
   <tr>
     <td>Baseline Variation</td>
-    <td>Best Fit</td>
+    <td>Example Fit (nsteps = 50k, nreps = 32, elapsed = 118 minutes)</td>
   </tr>
   <tr>
     <td><img src="/docs/src/figures/Baseline.png" width="450" height="300"></td>
     <td><img src="/docs/src/figures/Fit.png"      width="450" height="300"></td>
   </tr>
+    <tr>
+      <td><img src="/docs/src/figures/Error.png" width="450" height="300"></td>
+    </tr>
  </table>
-
 
 ## TODO
 1. Minute-by-minute game log

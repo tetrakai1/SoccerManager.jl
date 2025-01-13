@@ -119,7 +119,7 @@ for i in 1:nsteps
         save_rosters(rpaths, sims[1].tv)
     end
 end
-(time() - init_time)/60
+elapsed = (time() - init_time)/60
 
 # sims = deepcopy(sims_last);
 # sims = deepcopy(sims_best);
