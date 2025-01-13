@@ -123,17 +123,18 @@ The algorithm in [fitratings.jl](examples/fitratings.jl) was used to select play
 The left plot shows the random variation when replaying a season using the same ratings. This corresponds to the best fit possible given the randomness in the game engine.
 
 For the right plot, threshold-acceptance was used to choose ratings without knowledge of the true values (as would be the case when comparing to real-life data).
+
 <table>
   <tr>
-    <td>Baseline Variation</td>
-    <td>Example Fit (nsteps = 50k, nreps = 32, elapsed = 118 minutes)</td>
+    <td align="center">Baseline Variation</td>
+    <td align="center">Example Fit</td>
   </tr>
   <tr>
     <td><img src="/docs/src/figures/Baseline.png" width="450" height="300"></td>
     <td><img src="/docs/src/figures/Fit.png"      width="450" height="300"></td>
   </tr>
     <tr>
-      <td><img src="/docs/src/figures/Error.png" width="450" height="300"></td>
+      <td colspan="2" align="center"><img src="/docs/src/figures/Error.png" width="450" height="300"></td>
     </tr>
  </table>
 
