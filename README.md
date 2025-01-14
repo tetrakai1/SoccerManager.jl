@@ -5,15 +5,15 @@ The game consists of (human or "AI") players submitting [teamsheets](data/teamsh
 
 Tuning the ratings of each player so the engine outputs realistic results is a non-trivial optmization problem. For a single league of 20 teams consisting of 30 players each, there are `20*30*6 = 3600` interdependent ratings to fit. The ratings are discrete values constrained between 1 and 99, which also poses a difficulty for many optimization algorithms.
 
-Thus, the problem is high-dimensional, stochastic, discrete, and constrained. Further, when simulating baseline data from the engine itself, the correct answer is known. These are properties that could make it an interesting optimization/machine-learning benchmark.
+Thus, the problem is high-dimensional, stochastic, discrete, and constrained. When simulating baseline data from the engine itself, the correct answer is also known. These are properties that could make it an interesting optimization/machine-learning benchmark.
 
-The ultimate goal, however, is an open-source game that can realistically track the real-life performance of many leagues worth of players over multiple seasons according to a predetermined algorithm.
+The ultimate goal, however, is an open-source game that can realistically track the real-life performance of many leagues worth of players, over multiple seasons, according to a predetermined algorithm.
 
-To that end, the original game was rewritten in Julia to be ~1000x faster. Besides more efficiently tuning the ratings, this package could also serve as a base for developing a more realistic engine.
+To that end, the original game was rewritten in Julia with a focus on performance (~1000x faster). Besides more efficiently tuning the ratings, this package could also serve as a base for developing a more realistic engine.
 
 ## Installation
 #### Unregistered private repo
-```
+```bash
 # After cloning/downloading repo
 # Start Julia REPL (threads and optimization arguments are included as an example)
 user@pc:~/path/to/package$ julia --threads=2 -O3
@@ -50,7 +50,7 @@ Status `~/path/to/package/Project.toml`
 
 ### Set up data directory
 Next navigate to the [setup_datadir.jl](examples/setup_datadir.jl) script and open with a text editor, change `path_datadir` to an appropriate location for the data directory, and paste into the REPL. This will copy default roster/etc files into the chosen directory:
-```
+```julia
 julia> using SoccerManager
 
        # Copy default roster/etc files from package into chosen data directory
@@ -74,12 +74,12 @@ Exit the Julia REPL using `ctrl-d`.
 Now the examples can be run. They are meant to be run interactively in the REPL, each in a fresh Julia session. NB: These scripts require that the data directory has been created and the path saved to `examples/path_datadir.txt`.
 
 Next time Julia is started use the `--project=.` argument to automatically activate the environment:
-```
+```bash
 user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 ```
 
 The current environment can be double-checked using the package manager REPL prompt. It should be:
-```
+```bash
 # Enter the package manager REPL using the closing square bracket
 julia> ]
 (SoccerManager) pkg> 
@@ -110,7 +110,7 @@ julia> ]
 
 ## Performance Benchmarks
 #### System Specs
-```
+```bash
 Julia Version 1.11.2
 Commit 5e9a32e7af2 (2024-12-01 20:02 UTC)
 Build Info:
