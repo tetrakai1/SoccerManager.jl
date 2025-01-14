@@ -5,4 +5,4 @@ using SoccerManager
 # WARNING: Overwriting the directory will delete all the contents
 # A tuple of useful paths is also returned 
 path_datadir = "/home/user1/Documents/SoccerManager"
-paths        = init_user_data_dir(path_dest, force = false);
+paths        = init_user_data_dir(path_datadir, force = false);
