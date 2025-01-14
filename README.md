@@ -71,7 +71,7 @@ Now the example scripts can be run. They are meant to be run interactively in th
 path_datadir = "/home/user/Documents/SoccerManagerData"
 ```
 
-Next time Julia is started use the `--project` argument to automatically activate the environment:
+Next time Julia is started use the `--project=.` argument to automatically activate the environment:
 ```
 user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 ```
