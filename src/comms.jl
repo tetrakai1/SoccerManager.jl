@@ -350,7 +350,7 @@ function update_sidefactor!(comm, idx)
 end
 
 """
-    write_comms(comms, path_xxxx, tnames)
+    write_comms(dir, comms, tnames)
 
 Writes the game results (comms) to a file.
 

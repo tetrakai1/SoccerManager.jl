@@ -3,11 +3,13 @@ A performant soccer simulator for gaming and ML. Based on [ESMS](https://github.
 
 The game consists of (human or "AI") players submitting [teamsheets](data/teamsheets/apesht.txt) to select footballers from a [roster](data/rosters/ape.txt). The data for a pair of teams is then plugged into a game engine that pseudo-randomly chooses whether there was a shot, tackle, injury, etc each minute of the game. The results depend on the player ratings, but are also very sensitive to fatigue and the tactics (Attacking, Defensive, etc) used by each team.
 
-Tuning the ratings of each player so the engine outputs realistic results is an interesting optmization problem. For a single league of 20 teams consisting of 30 players each, there are `20*30*6 = 3600` interdependent ratings to fit. The ratings are discrete and constrained between 1 and 99, which also poses a difficulty for many optimization algorithms.
+Tuning the ratings of each player so the engine outputs realistic results is a non-trivial optmization problem. For a single league of 20 teams consisting of 30 players each, there are `20*30*6 = 3600` interdependent ratings to fit. The ratings are discrete values constrained between 1 and 99, which also poses a difficulty for many optimization algorithms.
 
-The ultimate goal is an open-source game that can realistically track the real-life performance of many leagues worth of players over multiple seasons, according to a predetermined algorithm.
+Thus, the problem is high-dimensional, stochastic, discrete, and constrained. Further, when simulating baseline data from the engine itself, the correct answer is known. These are properties that could make it an interesting optimization/machine-learning benchmark.
 
-To that end, the original game was rewritten in Julia to be ~1000x faster. Besides more efficiently tuning the ratings, it could also serve as a base for developing a more realistic engine.
+The ultimate goal, however, is an open-source game that can realistically track the real-life performance of many leagues worth of players over multiple seasons according to a predetermined algorithm.
+
+To that end, the original game was rewritten in Julia to be ~1000x faster. Besides more efficiently tuning the ratings, this package could also serve as a base for developing a more realistic engine.
 
 ## Installation
 #### Unregistered private repo
@@ -76,6 +78,13 @@ Next time Julia is started use the `--project=.` argument to automatically activ
 user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 ```
 
+The current environment can be double-checked using the package manager REPL prompt. It should be:
+```
+# Enter the package manager REPL using the closing square bracket
+julia> ]
+(SoccerManager) pkg> 
+```
+
 ## Examples
 ### [setup_datadir.jl](examples/setup_datadir.jl)
 - Short script for setting up the user data directory
@@ -86,6 +95,7 @@ user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 
 ### [playgames.jl](examples/playgames.jl)
 - Demonstrates how to play a single game, week of games, or an entire season at once
+    - This script is meant to be run line-by-line
 
 ### [fitratings.jl](examples/fitratings.jl)
 - Demonstrates a simple threshold acceptance algorithm for using season-end stats to optimize player ratings
