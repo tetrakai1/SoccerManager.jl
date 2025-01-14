@@ -54,22 +54,22 @@ julia> using SoccerManager
        # Copy default roster/etc files from package into chosen data directory
        # The directory will be created if it doesn't exist or can be overwritten by setting force = true
        # WARNING: Overwriting the directory will delete all the contents
-       # A tuple of useful paths is also returned
 
-julia> path_datadir = "/home/user/Documents/SoccerManagerData"
-"/home/user/Documents/SoccerManagerData"
+julia> path_datadir = "/home/user1/Documents/SoccerManager"
+"/home/user1/Documents/SoccerManager"
 
 julia> paths        = init_user_data_dir(path_datadir, force = false);
-New data directory created at: /home/user/Documents/SoccerManagerData/data
+New data directory created at: /home/user1/Documents/SoccerManager/data
+
+       # Save the path for use by the other example scripts
+julia> write("examples/path_datadir.txt", path_datadir)
+38
+
 ```
 
 Exit the Julia REPL using `ctrl-d`.
 
-Now the example scripts can be run. They are meant to be run interactively in the REPL, each in a fresh Julia session. Before running the others, also change the data directory path in those scripts to the same one used above. Eg:
-
-```
-path_datadir = "/home/user/Documents/SoccerManagerData"
-```
+Now the examples can be run. They are meant to be run interactively in the REPL, each in a fresh Julia session. NB: These scripts require that the data directory has been created and the path saved to `examples/path_datadir.txt`.
 
 Next time Julia is started use the `--project=.` argument to automatically activate the environment:
 ```

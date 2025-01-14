@@ -7,7 +7,7 @@ theme(:solarized)
 ############################
 
 # Paths used to access the data directory structure
-path_datadir = "/home/user1/Documents/SoccerManager"
+path_datadir = read("examples/path_datadir.txt", String)
 paths        = get_data_paths(path_datadir);
 
 # Init various config structs
