@@ -82,6 +82,7 @@ user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 
 ### [benchmarks.jl](examples/benchmarks.jl)
 - Benchmarks for the higher-level functions (eg, reading/writing league data from file or playing an entire season)
+    - There will be a prompt to install `BenchmarkTools` if it is not already present
 
 ### [playgames.jl](examples/playgames.jl)
 - Demonstrates how to play a single game, week of games, or an entire season at once
@@ -94,7 +95,8 @@ user@pc:~/path/to/package$ julia --project=. --threads=2 -O3
 - The `@multi` macro defined in [SoccerManager.jl](src/SoccerManager.jl) can be used to switch between multi-threading libraries at compile time. Use `@batch` unless nesting multiple multi-threaded loops (then use `@threads`).
 - Set the `--threads` command-line argument to the number of physical cores, not threads
 - A league of 20 teams can play only 10 games in parallel, so unless nesting inside an outer loop `@batch` is best and only 10 threads are needed
-- On the other hand, the algorithm in the [fitratings.jl](examples/fitratings.jl) script plays multiple replicates of the same season in parallel to average out the random variation. For this usecase `@threads` is best, and at least `nreps*nteams/2` threads is ideal. NB: due to the composability of `@threads`, performance can still benefit from multi-threading even if oversubscribed.
+- On the other hand, the algorithm in the [fitratings.jl](examples/fitratings.jl) script plays multiple replicates of the same season in parallel to average out the random variation. For this usecase `@threads` is best, and at least `nreps*nteams/2` threads is ideal. 
+    - NB: Due to the composability of `@threads`, performance can still benefit from multi-threading even if oversubscribed.
 
 ## Performance Benchmarks
 #### System Specs

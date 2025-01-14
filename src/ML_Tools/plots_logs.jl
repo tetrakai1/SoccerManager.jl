@@ -205,7 +205,7 @@ function plot_error(rmselog, target, idx, nreps, elapsed)
               title         = "Error Curve\n"*subtitle,
               titlefontsize = 10)
     p1 = plot!(p1, xvals, yvals; color = :red)
-    p1 = StatsPlots.hline!(p1, [target]; color = :green)
+    p1 = sp_hline!(p1, [target]; color = :green)
     annotate!(2, target, text("Target", :green, :bottom, 12))
 
     display(plot(p1))

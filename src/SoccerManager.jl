@@ -44,7 +44,7 @@ module SoccerManager
 using Accessors, Distributions, Format, InlineStrings, Parameters, StaticArrays, StatsBase
 using DataFrames, Polyester, .Threads
 using UnicodePlots: lineplot, lineplot!, hline!
-using StatsPlots: plot, plot!, scatter
+using StatsPlots: plot, plot!, scatter, text, annotate!, hline! as sp_hline!
 
 # Package Exports
 export init_user_data_dir, get_data_paths, retrieve_rosters, retrieve_teamsheets
@@ -53,7 +53,7 @@ export parse_roster, parse_teamsheet, parse_league, update_teamsheet, update_ros
 export init_tv, init_lgtble, init_league
 export playgame!, playgames!, playseason!
 export rost2df, lgtble2df, struct2df, comm2df, flatten_rosters
-export reset_all!, save_rosters, write_roster, write_lg_table
+export reset_all!, save_rosters, write_roster, write_lg_table, write_comms
 export UpdateConfig, TeamSheetConfig, parse_tactics, makeschedule
 export init_sims, calc_metric, reset_sims!, playreps!, update_ratings!
 export init_rand_ratings!, init_ratings!, rand_ratings, equal_ratings, maxmin, init_percent_ratings!
