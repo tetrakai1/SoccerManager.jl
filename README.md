@@ -131,11 +131,11 @@ Threads: 32 default, 0 interactive, 16 GC (on 64 virtual cores)
 ## ML Benchmarks
 The algorithm in [fitratings.jl](examples/fitratings.jl) was used to select player skill ratings according to how well the season-end stats fit those from a baseline/ground-truth season. 
 
-The left plot shows the random variation when replaying a season using the same ratings. This corresponds to the best fit possible given the randomness in the game engine.
+The left plot shows the random variation in player stats (each point is one player in the league) when replaying a season using the same ratings. This corresponds to the best fit possible given the randomness in the game engine.
 
 For the right plot, threshold-acceptance was used to choose ratings without knowledge of the true values (as would be the case when comparing to real-life data).
 
-The bottom plot shows the algorithm tuning the ratings. The target corresponds to baseline variation.
+The bottom plot shows the algorithm tuning the ratings. The target corresponds to baseline variation. Upon inspection, it appears the main trouble is with discovering which position is played by the non-starters in the roster. NB: The game engine does not have a concept of preferred position, but this information would be available for real-life data.
 <table>
   <tr>
     <td align="center">Baseline Variation</td>
