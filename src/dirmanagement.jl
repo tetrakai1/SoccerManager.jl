@@ -66,7 +66,7 @@ end
 Returns paths to various useful parts of the data directory.
 
 # Arguments
-- `path_dest :: String` : The destination data directory
+- `path_datadir :: String` : The destination data directory
 
 # Returns
 A `NamedTuple` of paths to the various data.
@@ -78,7 +78,7 @@ A `NamedTuple` of paths to the various data.
 """
 function get_data_paths(path_datadir)
     paths = (proj                   = path_datadir,)
-    paths = (paths ..., data        = joinpath(path_dest,        "data"))
+    paths = (paths ..., data        = joinpath(path_datadir,     "data"))
     paths = (paths ..., rosters     = joinpath(paths.data,       "rosters"))
     paths = (paths ..., teamsheets  = joinpath(paths.data,       "teamsheets"))
     paths = (paths ..., rosters0    = joinpath(paths.rosters,    "Rosters0"))
@@ -91,7 +91,7 @@ function get_data_paths(path_datadir)
 end
 
 """
-    init_user_data_dir(path_dest; force = false)
+    init_user_data_dir(path_datadir; force = false)
 
 Copies the default data directory *from the package source directory* to one chosen by the user.
 
@@ -100,7 +100,7 @@ WARNING: If force == true, this deletes any existing files in the directory. If 
 If the directory exists and force == false, then it only returns a set of paths.
 
 # Arguments
-- `path_dest :: String` : The destination data directory
+- `path_datadir :: String` : The destination data directory
 
 # Kwargs
 - `force :: Bool` : Whether to force overwriting existing files with the same names
@@ -113,9 +113,9 @@ A `NamedTuple` of paths to the various data.
 - Used by : [`FUNC`](@ref)
 - Related : [`retrieve_rosters`](@ref), [`retrieve_teamsheets`](@ref)
 """
-function init_user_data_dir(path_dest; force = false)
+function init_user_data_dir(path_datadir; force = false)
     paths     = nothing
-    path_data = joinpath(path_dest, "data")
+    path_data = joinpath(path_datadir, "data")
     response  = "yes"
 
     # If directory exists and force = true then prompt before overwriting
@@ -131,7 +131,7 @@ function init_user_data_dir(path_dest; force = false)
 
     # Create directory if it does not exist
     elseif !isdir(path_data)
-        mkpath(path_dest)
+        mkpath(path_datadir)
         Base.Filesystem.cptree(DATADIR0, path_data; force = force)
         println("New data directory created at: $path_data")
 
@@ -142,16 +142,7 @@ function init_user_data_dir(path_dest; force = false)
     end
 
     if response == "yes"
-        # paths = (proj                   = path_dest,)
-        # paths = (paths ..., data        = path_data)
-        # paths = (paths ..., rosters     = joinpath(paths.data,       "rosters"))
-        # paths = (paths ..., teamsheets  = joinpath(paths.data,       "teamsheets"))
-        # paths = (paths ..., rosters0    = joinpath(paths.rosters,    "Rosters0"))
-        # paths = (paths ..., teamsheets0 = joinpath(paths.teamsheets, "Teamsheets0"))
-        # paths = (paths ..., tactics     = joinpath(paths.data,       "tactics.dat"))
-        # paths = (paths ..., league      = joinpath(paths.data,       "league.dat"))
-        # paths = (paths ..., table       = joinpath(paths.data,       "table.txt"))
-        paths = get_data_paths(path_dest)
+        paths = get_data_paths(path_datadir)
     end
 
     return paths

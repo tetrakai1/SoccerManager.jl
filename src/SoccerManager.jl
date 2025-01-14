@@ -47,7 +47,7 @@ using UnicodePlots: lineplot, lineplot!, hline!
 using StatsPlots: plot, plot!, scatter
 
 # Package Exports
-export init_user_data_dir, retrieve_rosters, retrieve_teamsheets
+export init_user_data_dir, get_data_paths, retrieve_rosters, retrieve_teamsheets
 export LeagueData, Roster, TeamStats, TeamVec, LgTable
 export parse_roster, parse_teamsheet, parse_league, update_teamsheet, update_roster, lgrank!
 export init_tv, init_lgtble, init_league
