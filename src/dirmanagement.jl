@@ -77,7 +77,7 @@ A `NamedTuple` of paths to the various data.
 - Related : [`FUNC`](@ref)
 """
 function get_data_paths(path_datadir)
-    paths = (proj                   = path_dest,)
+    paths = (proj                   = path_datadir,)
     paths = (paths ..., data        = joinpath(path_dest,        "data"))
     paths = (paths ..., rosters     = joinpath(paths.data,       "rosters"))
     paths = (paths ..., teamsheets  = joinpath(paths.data,       "teamsheets"))
