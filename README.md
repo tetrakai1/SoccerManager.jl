@@ -9,7 +9,7 @@ Thus, the problem is high-dimensional, stochastic, discrete, and constrained. Wh
 
 The ultimate goal, however, is an open-source game that can realistically track the real-life performance of many leagues worth of players, over multiple seasons, according to a predetermined algorithm.
 
-To that end, the original game was rewritten in Julia with a focus on performance (~1000x faster). Besides more efficiently tuning the ratings, this package could also serve as a base for developing a more realistic engine.
+To those ends, the original game was rewritten in Julia with a focus on performance (~1000x faster). Besides more efficiently tuning the ratings, this package could also serve as a base for developing a more realistic engine.
 
 ## Installation
 #### Unregistered private repo
@@ -129,7 +129,7 @@ Threads: 32 default, 0 interactive, 16 GC (on 64 virtual cores)
 - `@batch  :` `5.211  ms (113  allocations: 29.06 KiB)`
 
 ## ML Benchmarks
-The algorithm in [fitratings.jl](examples/fitratings.jl) was used to select player *skill ratings* according to how well the season-end stats fit those from a baseline/ground-truth season. 
+The algorithm in [fitratings.jl](examples/fitratings.jl) was used to select player skill ratings according to how well the season-end stats fit those from a baseline/ground-truth season. 
 
 The left plot shows the random variation when replaying a season using the same ratings. This corresponds to the best fit possible given the randomness in the game engine.
 
