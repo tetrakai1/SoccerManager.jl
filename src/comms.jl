@@ -393,7 +393,7 @@ function write_comms(dir, comms, tnames)
         end
         println(file, "\n\n")
 
-        mat = @MMatrix fill(String15(""), length(comm.Name), 25)
+        mat = @MMatrix fill(String15(""), length(comms[1].Name), 25)
         for i in 1:2
             comm = comms[i]
             # Second column is adding back padding for Name and Pos columns

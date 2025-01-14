@@ -41,6 +41,8 @@ playgame!(lg_data.tv, 1, 11)
 # show(comm2df(lg_data.tv[1].comm), allcols = true)
 comm2df(lg_data.tv[1].comm)
 
+# Write the commentary to file (TODO: the game log is a placeholder)
+write_comms(paths.comms, (lg_data.tv[1].comm, lg_data.tv[11].comm), TEAMNAMES[[1; 11]])
 
 # Update the roster for team 1
 lg_data.tv[1].roster = update_roster(lg_data.tv[1].roster, lg_data.tv[1].comm);
