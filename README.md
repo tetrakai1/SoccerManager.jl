@@ -135,7 +135,7 @@ The left plot shows the random variation in player stats (each point is one play
 
 For the right plot, threshold-acceptance was used to choose ratings without knowledge of the true values (as would be the case when comparing to real-life data).
 
-The bottom plot shows the algorithm tuning the ratings. The target corresponds to baseline variation. Upon inspection, it appears the main trouble is with discovering which position is played by the non-starters in the roster. NB: The game engine does not have a concept of preferred position, but this information would be available for real-life data.
+The bottom plot shows the algorithm tuning the ratings. The target corresponds to baseline variation. Upon inspection, it appears the main trouble is with discovering which position is best played by the non-starters in the roster. NB: The game engine does not have a concept of preferred position, but this information would be available for real-life data.
 <table>
   <tr>
     <td align="center">Baseline Variation</td>
