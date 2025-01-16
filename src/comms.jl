@@ -139,7 +139,7 @@ end
 Finds the `roster` index of the players in `teamsheet`.
 
 # Arguments
-- `roster  :: Roster`    : An immutable `Roster` struct
+- `roster  :: Roster`      : An immutable `Roster` struct
 - `teamsheet :: TeamSheet` : An immutable `TeamSheet` struct
 
 # Returns
@@ -352,9 +352,9 @@ end
 """
     write_comms(dir, comms, tnames)
 
-Writes the game results (comms) to a file.
+Writes the game results (`comms`) to a file.
 
-The file contains a minute-by-minute game log, a fixed-width table for each `Comms`, and is named `tname[1]_tname[2].txt`
+The file contains a minute-by-minute game log, a fixed-width table for each `Comms`, and is named `tnames[1]_tnames[2].txt`
 
 # Arguments
 - `dir    :: String`         : Path to the directory where the file is saved

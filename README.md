@@ -1,7 +1,7 @@
 # SoccerManager.jl
 A performant soccer simulator for gaming and ML. Based on [ESMS](https://github.com/eliben/esms).
 
-The game consists of (human or "AI") players submitting [teamsheets](data/teamsheets/apesht.txt) to select footballers from a [roster](data/rosters/ape.txt). The data for a pair of teams is then plugged into a game engine that pseudo-randomly chooses whether there was a shot, tackle, injury, etc each minute of the game. The results depend on the player ratings, but are also very sensitive to fatigue and the tactics (Attacking, Defensive, etc) used by each team.
+The game consists of (human or "AI") players submitting [teamsheets](data/teamsheets/apesht.txt) to select footballers from a [roster](data/rosters/ape.txt). The data for a pair of teams is then plugged into a game engine that pseudo-randomly chooses whether there was a shot, tackle, injury, etc each minute of the game. The results depend on the player ratings, but are also very sensitive to fatigue and the [tactics](data/tactics.dat) (Attacking, Defensive, etc) used by each team.
 
 Tuning the ratings of each player so the engine outputs realistic results is a non-trivial optmization problem. For a single league of 20 teams consisting of 30 players each, there are `20*30*6 = 3600` interdependent ratings to fit. The ratings are discrete values constrained between 1 and 99, which also poses a difficulty for many optimization algorithms.
 
