@@ -37,6 +37,7 @@ nsteps   = 200_000
 thresh   = thresh0 = 0.1
 threshd  = 0.001
 stepsize = stepsize0 = Int16(1)
+nreset   = 1000
 
 # Generate Baseline Stats
 nteams   = length(rpaths)
@@ -86,7 +87,7 @@ for i in 1:nsteps
     else
         # Update rosters from previous accepted step (new ratings are sampled from uniform +/1)
         # Restart from best result if too many steps elapsed without progress
-        if i - rmse_last[1] <= 1000
+        if i - rmse_last[1] <= nreset
             update_ratings!(sims, sims_last, stepsize)
             stepsize  = max(stepsize - Int16(1), Int16(1))
         else
