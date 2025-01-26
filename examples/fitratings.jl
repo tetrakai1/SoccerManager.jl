@@ -32,10 +32,10 @@ retrieve_teamsheets(paths, TEAMNAMES; force = true)
 #############################
 
 # Hyperparameters
-nreps    = 3
-nsteps   = 10_000
+nreps    = 128
+nsteps   = 200_000
 thresh   = thresh0 = 0.1
-threshd  = 0.01
+threshd  = 0.001
 stepsize = stepsize0 = Int16(1)
 
 # Generate Baseline Stats
@@ -75,7 +75,7 @@ for i in 1:nsteps
         if rmse < rmse_best[2] && i > 1
             rmse_best = (i, rmse)
             sims_best = deepcopy(sims)
-            stat_scatter(baseline, sims_best[1])
+            # stat_scatter(baseline, sims_best[1])
         end
         # Update rosters from this step (new ratings are sampled from uniform +/-1)
         # Only decrement threshold when a better fit was found
@@ -86,7 +86,7 @@ for i in 1:nsteps
     else
         # Update rosters from previous accepted step (new ratings are sampled from uniform +/1)
         # Restart from best result if too many steps elapsed without progress
-        if i - rmse_last[1] <= 100
+        if i - rmse_last[1] <= 1000
             update_ratings!(sims, sims_last, stepsize)
             stepsize  = max(stepsize - Int16(1), Int16(1))
         else
@@ -101,7 +101,7 @@ for i in 1:nsteps
     rmselog[i] = (rmse, flag)
 
     # Print results to terminal
-    if i % 100 == 0
+    if i % 10 == 0
         printlog(i, rmselog, init_time, rmse_best, rmse_last, thresh)
 
         idx1 = 1:i; idx2 = max(1, i - 1000):i
@@ -109,7 +109,7 @@ for i in 1:nsteps
         plotlog(rmselog, rmse_best[2], idx2; height = 15, width = 40)
 
         # Use Linux "watch" in a terminal to spot/sanity-check rosters
-        save_rosters(rpaths, sims[1].tv)
+        # save_rosters(rpaths, sims[1].tv)
     end
 end
 elapsed = (time() - init_time)/60

@@ -203,6 +203,7 @@ function plot_error(rmselog, target, idx, nreps, elapsed)
               gridalpha     = 0.5,
               xscale        = :log10,
               xticks        = 10 .^ collect(0:ceil(log10(nsteps))),
+              minorticks    = 10,
               ylab          = "RMSE (per team)", 
               title         = "Error Curve\n"*subtitle,
               titlefontsize = 10)
