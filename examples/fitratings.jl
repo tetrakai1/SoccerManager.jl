@@ -35,7 +35,7 @@ retrieve_teamsheets(paths, TEAMNAMES; force = true)
 nreps    = 128
 nsteps   = 200_000
 thresh   = thresh0 = 0.1
-threshd  = 0.001
+threshd  = 0.01
 stepsize = stepsize0 = Int16(1)
 nreset   = 1000
 
