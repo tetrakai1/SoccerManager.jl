@@ -111,22 +111,22 @@ julia> ]
 ## Performance Benchmarks
 #### System Specs
 ```bash
-Julia Version 1.11.2
-Commit 5e9a32e7af2 (2024-12-01 20:02 UTC)
+Julia Version 1.11.3
+Commit d63adeda50d (2025-01-21 19:42 UTC)
 Build Info:
   Official https://julialang.org/ release
 Platform Info:
   OS: Linux (x86_64-linux-gnu)
-  CPU: 64 × AMD Ryzen Threadripper 2990WX 32-Core Processor
+  CPU: 48 × AMD EPYC 9R14
   WORD_SIZE: 64
-  LLVM: libLLVM-16.0.6 (ORCJIT, znver1)
-Threads: 32 default, 0 interactive, 16 GC (on 64 virtual cores)
+  LLVM: libLLVM-16.0.6 (ORCJIT, znver4)
+Threads: 48 default, 0 interactive, 24 GC (on 48 virtual cores)
 ```
 #### Single game
-`50.991 μs (0 allocations: 0 bytes)`
+`41.620 μs (0 allocations: 0 bytes)`
 #### Season with 20 teams (38 games each)
-- `@threads:` `13.545 ms (6231 allocations: 850.22 KiB)`
-- `@batch  :` `5.211  ms (113  allocations: 29.06 KiB)`
+- `@threads:` `4.321 ms (9271 allocations: 1.24 MiB)`
+- `@batch  :` `3.594  ms (113  allocations: 29.06 KiB)`
 
 ## ML Benchmarks
 The algorithm in [fitratings.jl](examples/fitratings.jl) was used to select player skill ratings according to how well the season-end stats fit those from a baseline/ground-truth season. 
