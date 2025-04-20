@@ -70,8 +70,11 @@ Nothing. Mutates the `Sims` struct.
 - Related : [`init_sims`](@ref), [`reset_sims!`](@ref)
 """
 function playreps!(sims)
-    @threads for i in eachindex(sims)
-        playseason!(sims[i]);
+    disable_polyester_threads() do
+        # @batch for i in eachindex(sims)
+        @threads for i in eachindex(sims)
+            playseason!(sims[i]);
+        end
     end
     return nothing
 end

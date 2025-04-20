@@ -32,8 +32,8 @@ retrieve_teamsheets(paths, TEAMNAMES; force = true)
 #############################
 
 # Hyperparameters
-nreps    = 128
-nsteps   = 200_000
+nreps    = 3
+nsteps   = 20_000
 thresh   = thresh0 = 0.1
 threshd  = 0.01
 stepsize = stepsize0 = Int16(1)
@@ -102,7 +102,7 @@ for i in 1:nsteps
     rmselog[i] = (rmse, flag)
 
     # Print results to terminal
-    if i % 10 == 0
+    if i % 100 == 0
         printlog(i, rmselog, init_time, rmse_best, rmse_last, thresh)
 
         idx1 = 1:i; idx2 = max(1, i - 1000):i

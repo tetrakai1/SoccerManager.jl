@@ -68,7 +68,7 @@ StatsBase.weights(w::Weights) = w
 # See `SoccerManager.jl`:
 - var"@multi" = ifelse(false, var"@batch", var"@threads")
 """
-const var"@multi" = ifelse(false, var"@batch", var"@threads")
+const var"@multi" = ifelse(true, var"@batch", var"@threads")
 
 """
     Compile-time constants.

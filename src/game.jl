@@ -50,6 +50,7 @@ Nothing. Mutates the `TeamVec` and `LgTable` vectors in `lg_data` after each gam
 function playgames!(lg_data, wk_sched)
     @unpack_LeagueData lg_data
     @multi for idx in eachrow(wk_sched)
+    # for idx in eachrow(wk_sched)
         idx1 = idx[1]
         idx2 = idx[2]
 
